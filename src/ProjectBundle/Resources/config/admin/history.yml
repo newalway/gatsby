@@ -1,0 +1,38 @@
+admin_history:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminHistory:index}
+  methods:  [GET]
+
+admin_history_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminHistory:new}
+  methods:  [GET,POST]
+
+admin_history_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminHistory:edit}
+  methods:  [GET,POST]
+  requirements:
+    id: \d+
+
+admin_history_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminHistory:delete}
+  methods:  [GET]
+  requirements:
+    id: \d+
+
+admin_history_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminHistory:group_delete}
+  methods:  [POST]
+
+admin_history_sort:
+  path: /sort
+  defaults: {_controller: ProjectBundle:AdminHistory:sort}
+  methods:  [GET]
+
+admin_history_sort_prosess:
+  path: /sort-prosess
+  defaults: {_controller: ProjectBundle:AdminHistory:sort_prosess}
+  methods:  [POST]

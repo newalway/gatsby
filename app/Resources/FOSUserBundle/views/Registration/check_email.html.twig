@@ -1,0 +1,21 @@
+{% extends "FOSUserBundle::bundle-layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+<div class="main-content container">
+<div class="container fos-container text-center">
+  <div class="fos-regis-check-email">
+    <i class="ion-paper-airplane" style="font-size:3em;"></i>
+    <p style="margin-top:30px;">
+      {{ 'registration.check_email'|trans({'%email%': user.email}) }}
+    </p>
+    {#
+    <div class="text-center">
+      <a href="{{path('fos_user_security_login')}}" class="btn btn-default arrow-push-out-right"><span>{% trans %}layout.login{% endtrans %} <i class="fa fa-caret-right"></i></span></a>
+    </div>
+    #}
+  </div>
+</div>
+</div>
+{% endblock content %}

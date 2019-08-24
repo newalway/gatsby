@@ -1,0 +1,38 @@
+admin_product_category:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminProductCategory:index}
+  methods:  [GET]
+
+admin_product_category_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminProductCategory:new}
+  methods:  [GET,POST]
+
+admin_product_category_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminProductCategory:edit}
+  methods:  [GET,POST]
+  requirements:
+    id: \d+
+
+admin_product_category_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminProductCategory:delete}
+  methods:  [GET]
+  requirements:
+    id: \d+
+
+admin_product_category_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminProductCategory:group_delete}
+  methods:  [POST]
+
+admin_product_category_sort:
+  path: /sort
+  defaults: {_controller: ProjectBundle:AdminProductCategory:sort}
+  methods:  [GET]
+
+admin_product_category_sort_prosess:
+  path: /sort-prosess
+  defaults: {_controller: ProjectBundle:AdminProductCategory:sort_prosess}
+  methods:  [POST]

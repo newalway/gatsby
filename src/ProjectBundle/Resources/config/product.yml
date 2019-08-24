@@ -1,0 +1,24 @@
+product:
+  path: /
+  defaults: {_controller: ProjectBundle:Product:index}
+  methods:  [GET]
+  options:
+    expose: true
+
+product_series:
+  path: /{id}/series/{slug}
+  defaults: {_controller: ProjectBundle:Product:series}
+  methods:  [GET]
+  requirements:
+    id: \d+
+  options:
+    expose: true
+
+product_detail:
+  path: /detail/{id}/{slug}
+  defaults: {_controller: ProjectBundle:Product:detail}
+  methods:  [GET]
+  requirements:
+    id: \d+
+  options:
+    expose: true

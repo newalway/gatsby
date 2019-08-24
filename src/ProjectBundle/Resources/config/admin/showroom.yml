@@ -1,0 +1,48 @@
+admin_showroom:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminShowroom:index}
+  methods:  [GET]
+
+admin_showroom_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminShowroom:new}
+  methods:  [GET,POST]
+
+admin_showroom_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminShowroom:edit}
+  methods:  [GET,POST]
+  requirements:
+    id: \d+
+
+admin_showroom_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminShowroom:delete}
+  methods:  [GET]
+  requirements:
+    id: \d+
+
+admin_showroom_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminShowroom:group_delete}
+  methods:  [POST]
+
+admin_showroom_group_enable:
+  path: /group-enable
+  defaults: {_controller: ProjectBundle:AdminShowroom:group_enable}
+  methods:  [POST]
+
+admin_showroom_group_disable:
+  path: /group-disable
+  defaults: {_controller: ProjectBundle:AdminShowroom:group_disable}
+  methods:  [POST]
+
+admin_showroom_sort:
+  path: /sort
+  defaults: {_controller: ProjectBundle:AdminShowroom:sort}
+  methods:  [GET]
+
+admin_showroom_sort_prosess:
+  path: /sort-prosess
+  defaults: {_controller: ProjectBundle:AdminShowroom:sort_prosess}
+  methods:  [POST]

@@ -1,0 +1,174 @@
+{% extends 'ProjectBundle::base.html.twig' %}
+
+{% block title %}GATSBY{% endblock %}
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/style-gatsby.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/bootstrap.min.css')}}">
+
+
+
+{##########################################################################}
+
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('gatsby/images/favicon.ico')}}" />
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+		<!-- 'gatsby/js/jssor/jquery-2.1.1.min.js' -->
+
+	{% javascripts output='js/complied/acseine.js'
+		'acseine/original/common/js/jquery.min.js'
+		'acseine/javascripts/angular/angular.min.js'
+		'javascripts/angular-responsive-images.js'
+		'acseine/bootstrap-3.3.7-dist/js/bootstrap.min.js'
+		'acseine/original/common/js/global.js'
+		'acseine/original/js/slick.min.js'
+		'acseine/original/js/custom.js'
+		'@numeral'
+		'@web_custom'
+	%}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129082405-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-129082405-1');
+	</script> -->
+{% endblock %}
+
+{% block body %}
+<header>
+	<nav class="navbar  navbar-inverse navbar-static-top">
+	  <div class="container-fluid">
+		<div class="navbar-header" style="text-align: center;">
+		  <a class="navbar-brand" href="{{path('homepage')}}"><img class="img-responsive"src="{{asset('gatsby/images/logo-gatsby.png')}}" alt="Dispute Bills"></a>
+		  <!-- <a><i class="social fa fa-pinterest" aria-hidden="true"></i></a> -->
+		  <a href = "https://www.facebook.com/gatsbythailand">
+		  	<img width="30" class="social" src="{{asset('gatsby/images/facebook-icon.png')}}" >
+	  	  </a>
+		  <!-- <a href = "https://www.facebook.com/gatsbythailand"><i class="social fa fa-facebook" aria-hidden="true"></i></a> -->
+		  <!-- <a><i class="social fa fa-twitter" aria-hidden="true"></i></a> -->
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar top-bar"></span>
+				<span class="icon-bar middle-bar"></span>
+				<span class="icon-bar bottom-bar"></span>
+		  </button>
+		</div>
+		{# menu for desktop rendering from controller MainController #}
+		{{ render(controller('ProjectBundle:Main:_menuDesktop',{'_route': app.request.get('_route'),'_route_params': app.request.get('_route_params')})) }}
+		{{ render(controller('ProjectBundle:Main:_menuMobile',{'_route': app.request.get('_route'),'_route_params': app.request.get('_route_params')})) }}
+
+		{#{% include "ProjectBundle:"~ view_layout ~":_desktop_menu.html.twig" %}
+		{% include "ProjectBundle:"~ view_layout ~":_mobile_menu.html.twig" %}#}
+
+	  </div><!--/.container-fluid -->
+	</nav>
+</header>
+<div class="wraper">
+
+{#<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>}} #}
+
+
+{% block breadcrumb %}{% endblock %}
+{% block content %}{% endblock %}
+
+
+{# back to top icon r#}
+<div class="top-up">
+	<a href="#" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+</div>{# end back to top icon r#}
+
+</div>{# end wraper#}
+<footer class="footer">
+	<div class="row follow_us">
+		<div class="container">
+			<div class="row head">
+				<h1>FOLLOW US</h1>
+				{#<img class="img-responsive" src="{{asset('gatsby/images/follow-us-text.png')}}">#}
+			</div>
+			<div class="desc">
+				<div class="col-xs-12 col-sm-6 col-md-6 contaent_desc">
+					<a href="https://www.facebook.com/gatsbythailand">
+						<!-- <i class="fa fa-facebook"></i> -->
+						<img src="{{asset('gatsby/images/facebook-icon.png')}}" >
+						<p>facebook</p>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-sm-6 col-md-6 contaent_desc">
+					<a href="{{path('contact')}}">
+						<!-- <i class="fa fa-envelope-o"></i> -->
+						<img src="{{asset('gatsby/images/contact-icon.png')}}" >
+						<p>contact</p>
+					</a>
+				</div>
+				{#<div class="col-xs-12 col-sm-6 col-md-4 contaent_desc">
+					<a href="#">
+						<!-- <i class="fa fa-print"></i> -->
+						<img src="{{asset('gatsby/images/faq-icon.png')}}" >
+						<p>FAQ</p>
+					</a>
+				</div>#}
+			</div>
+		</div>
+	</div>
+  <div class="container-fluid text-center">
+	  <p><img class="img-responsive company-logo-footer" src="{{asset('gatsby/images/footer-logo.png')}}" alt=""></p>
+  </div>
+</footer>
+{% endblock %}
+
+{% block javascripts_body %}
+	{{ parent() }}
+
+	<script type="text/javascript">
+    var $links = $('.dropdown-submenu a.test').on("click", function(e) {
+      var submenu = $(this).next();
+        $subs.not(submenu).hide();
+
+        submenu.toggle();
+      //$(this).next('ul').toggle();
+      e.stopPropagation();
+      e.preventDefault();
+    });
+    var $subs = $links.next();
+
+    $('.dropdown-toggle').on('click', function(e) {
+      $('.dropdown-submenu .dropdown-menu').hide();
+    });
+	// ===== Scroll to Top ====
+	$(window).scroll(function() {
+	    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+	        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+	    } else {
+	        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+	    }
+	});
+	$('#return-to-top').click(function() {      // When arrow is clicked
+	    $('body,html').animate({
+	        scrollTop : 0                       // Scroll to top of body
+	    }, 500);
+	});
+    </script>
+
+
+{% endblock %}

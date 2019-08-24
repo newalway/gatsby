@@ -1,0 +1,316 @@
+<div id="product-original" class="content-wrapper">
+
+    <section id="kv" class="pt-small">
+      <div class="content-inner">
+        <h1>
+            {% if (series|length > 0) %}
+              {% if series[0].getImageBanner %}
+                    <span class="bgpic pc"><img src="{{series[0].getImageBanner}}" alt="{{series[0].getTitle|upper}}" /></span>
+              {% endif %}
+
+              {% if series[0].getImageBanner %}
+                    <span class="bgpic sp"><img src="{{series[0].getImageBannerMobile}}" alt="{{series[0].getTitle|upper}}" /></span>
+              {% endif %}
+            {% endif %}
+        <!-- <span class="bgpic pc"><img src="../../../img/mr_main.jpg" alt="MOVING RUBBER" /></span>
+        <span class="bgpic sp"><img src="../../../img/mr_main_sp.jpg" alt="MOVING RUBBER" /></span> -->
+      </h1>
+      </div><!-- .content-inner -->
+      <div class="list-slide pc-block">
+        <ul>
+            {% if (products|length >0) %}
+                {% for product in products %}
+                    <li>
+                        <a href="#{{product.getTitle|raw|slug}}">
+                            <span class="pic"><img src="{{product.image}}" alt="{{product.getTitle|raw}}" /></span>
+                            {{product.getTitle}}
+                        </a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+            <!-- <li>
+                <a href="#spiky-edge" onClick="tmEvent('PC ムービングラバー>スパイキーエッジ');">
+                    <span class="pic"><img src="{{asset('gatsby/original/img/01_moving_rubber_se.png')}}" alt="SPIKY EDGE" /></span>
+                    SPIKY EDGE
+                </a>
+            </li> -->
+        </ul>
+      </div>
+    </section>
+
+
+
+    <div class="content-inner">
+      <section class="section-block">
+        <div class="section-inner detail-top">
+          <h3 class="tit-vertical sticky"><p>{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}<span></p></h3>
+          <div class="list-slide">
+            <ul>
+                {% if (products|length >0) %}
+                    {% for product in products %}
+                        <li>
+                            <a href="#{{product.getTitle|raw|slug}}" >
+                                <span class="pic"><img src="{{product.image}}" alt="{{product.getTitle|raw}}" /></span>
+                                {{product.getTitle}}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+          </div>
+
+          <div id="series-hair-jam" class="series-section">
+            <div class="section-content">
+              <h4 class="tit-line-top"><span>SERIES COMPARISON CHART</span></h4>
+
+
+              <div class="series-table">
+                <!-- series-table side -->
+                <div class="side row">
+                  <div></div>
+                  <div><span>สั้นมาก</span></div>
+                  <div><span>สั้น</span></div>
+                  <div><span>สั้นปานกลาง</span></div>
+                  <div><span>ปานกลาง</span></div>
+                  <div></div>
+                </div><!-- .side -->
+                <!-- series-table side -->
+
+                <!-- series-table row1 -->
+                <div class="row1 row">
+                  <div><span>STRONG HOLD</span></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div id="row-edgy-nuance" class="mark"><a href="#edgy-nuance">
+                    <div class="mark-in">
+                      <img src="{{asset('gatsby/original/img/series_mark_edgy_nuance.png')}}" alt="EDGY NUANCE" /><span>EDGY<br>NUANCE</span>
+                    </div>
+                  </a></div>
+                </div>
+                <!-- series-table row1 -->
+
+                <!-- series-table row2 -->
+                <div class="row2 row">
+                  <div><span>TIGHT HOLD</span></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div id="row-tight-nuance" class="mark"><a href="#tight-nuance">
+                    <div class="mark-in">
+                      <img src="{{asset('gatsby/original/img/series_mark_tight_nuance.png')}}" alt="TIGHT NUANCE" /> <span>TIGHT<br>NUANCE</span>
+                    </div>
+                  </a></div>
+                </div>
+                <!-- series-table row2 -->
+
+                <!-- series-table row3 -->
+
+                <!-- series-table row3 -->
+
+                <!-- series-table row4 -->
+
+                <!-- series-table row4 -->
+
+                <!-- series-table row5 -->
+                <div class="row3 row">
+                  <div><span>MATTE FINISH</span></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div id="row-mat-nuance" class="mark"><a href="#mat-nuance">
+                    <div class="mark-in">
+                      <img src="{{asset('gatsby/original/img/series_mark_mat_nuance.png')}}" alt="MAT NUANCE" /><span>MAT<br>NUANCE</span>
+                    </div>
+                  </a></div>
+                </div>
+                <!-- series-table row5 -->
+
+              </div><!-- .series -->
+
+
+
+            </div><!-- .section-content -->
+          </div><!-- .series-section -->
+        </div><!-- .section-inner -->
+      </section>
+{% if (products|length >0) %}
+{% for product in products %}
+            <!-- #spiky-edge start -->
+        <section id="{{product.getTitle|raw|slug}}" class="item-wrapper">
+            {% if product.imageInnerVideo and product.video %}
+            <div class="item-main section-block">
+                <h2>{{product.getTitle|raw}}</h2>
+                <span class="pic">
+                    {% if product.imageInnerVideo %}
+                        <img src="{{product.imageInnerVideo}}" alt="ムービングラバー スパイキーエッジ" />
+                    {% endif %}
+                </span>
+                <!-- <div class="section-inner">
+                <h3 class="tit-vertical">TECHNIQUES</h3>
+                </div> -->
+                <div class="movie" id="{{product.getTitle|raw|slug}}-techniques">
+                    <div class="movie-in">
+                        {% if product.video %}
+                            <iframe src="https://www.youtube.com/embed/{{product.videoId}}?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        {% endif %}
+                    </div><!-- .movie-in -->
+                </div><!-- .movie -->
+                <p class="en">{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}<span>{{product.getTitle|raw}}</span></p>
+            </div><!-- .main -->
+            {% endif %}
+        <section class="section-block grid-column">
+            {% if product.productTechNique|length > 0 %}
+            <div class="tech-section section-inner">
+                <!-- <h3 class="tit-vertical techniques-pc-title">TECHNIQUES</h3> -->
+                <h3 class="tit-vertical">TECHNIQUES</h3>
+                <div class="section-content">
+                    <div class="step">
+                        <div class="slick-wrapper">
+                            {% for technique in product.productTechNique %}
+                            <div class="slick-content">
+                                <div class="step-img">
+                                    <img data-lazy="{{technique.Image}}" alt="" />
+                                </div>
+                                <dl>
+                                    <dt>
+                                        <div class="no"><span>STEP</span>{{loop.index}}</div>
+                                    </dt>
+                                    <dd>
+                                        <p>{{technique.getTitle}}</p>
+                                    </dd>
+                                </dl>
+                            </div>{# .slick-content #}
+                            {% endfor %}
+                        </div>{# .slick-wrapper #}
+                    </div>{# .step #}
+                </div><!-- .section-content -->
+            </div><!-- .tech-section -->
+            {% endif %}
+            {% if product.productImages|length > 0 %}
+            <div class="style-section section-inner">
+                <h3 class="tit-vertical">STYLE</h3>
+
+                <div class="section-content">
+                    <div class="style">
+                        <div class="slick-wrapper">
+                          {% for style_img in product.productImages %}
+                            <div class="slick-content">
+                                <div class="style-img">
+                                    <img data-lazy="{{style_img.image}}" alt="" />
+                                </div>
+                            </div>{# .slick-content #}
+                          {% endfor %}
+                        </div>{# .slick-wrapper #}
+                    </div>{# .style #}
+              <!-- <div class="comment">
+                <div class="supervised">STYLED BY</div>
+                <div class="shop">ROOTS</div>
+                <div class="name">Takako Kato</div>
+                <p>Spiky Edge is a hard-holding styling product that is easy to blend and apply, creating defined hairstyles effortlessly. It fluently creates bunches and movement. Spiky Edge also holds up your hair if you've raised it around the Mohawk line. You don't even have to use a holding spray.</p>
+                <div class="person"><img src="../../../img/spiky_edge_supervised.png" alt="ムービングラバー スパイキーエッジ" /></div>
+              </div><!-- .comment -->
+                </div><!-- .section-content -->
+            </div><!-- .style-section -->
+            {% endif %}
+            {% if product.imageRadarChart %}
+            <div class="chart-section section-inner">
+                <h3 class="tit-vertical">RADAR CHART</h3>
+                <div class="section-content">
+                    <span class="pic">
+                        <img src="{{product.imageRadarChart}}" alt="RADAR CHART" /></span>
+                        {#<div class="chart-table">
+                            <h4 class="tit">LENGTH</h4>
+                            <ul class="table">
+                                <li class="on"><span>VERY <br class="sp-br">SHORT</span></li>
+                                <li class="on"><span>SHORT</span></li>
+                                <li><span>MEDIUM <br class="sp-br">SHORT</span></li>
+                                <li><span>MEDIUM & <br class="sp-br">LONGER</span></li>
+                            </ul>                                             <!--     <h4 class="tit">おすすめスタイル</h4>
+                  <ul class="table">
+                  <li class="on"><span>立ち上げ系</span></li>
+                  <li class="on"><span>毛束系</span></li>
+                  <li><span>ふんわり系</span></li>
+                  <li><span>まとまり系</span></li>
+                </ul>-->
+                        </div><!-- .chart-table-wrapper -->#}
+                </div><!-- .section-content -->
+            </div><!-- .chart-section -->
+            {% endif %}
+        </section>
+
+        <section class="section-block">
+            <div class="more-section section-inner">
+                <h4 class="acc-btn tit-vertical">MORE</h4>
+                <div class="section-content acc-body">
+                    <div class="col2-wrap">
+                        <div class="col2-inner">
+                            {% if product.getSpecialFeature %}
+                                <div class="inner-box">
+                                    <h5>SPECIAL FEATURES</h5>
+                                    <ul class="disc-list">
+                                        {{product.getSpecialFeature|raw}}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            {% if product.getHowToUse %}
+                                <div class="inner-box">
+                                    <h5>HOW TO USE</h5>
+                                    <ul class="disc-list">
+                                        {{product.getHowToUse|raw}}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col2-inner">
+                            {% if product.getNetWeight %}
+                                <div class="inner-box">
+                                    <h5>NET WEIGHT</h5>
+                                    <ul class="disc-list">
+                                        {{product.getNetWeight|raw}}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            <!-- <div class="inner-box">
+                            <p class="icon"><span>PARABEN FREE </span></p>
+                            </div> -->
+                        </div>
+                    </div>{# .col2-wrap #}
+                </div><!-- .section-content -->
+            </div><!-- .more-section -->
+        </section>
+
+</section>
+      <!-- #spiky-edge end -->
+      {% endfor %}
+{% endif %}
+
+      <!-- recommend start -->
+       <!-- recommend start -->
+{# <section class="section-block shop-bottom-block">
+  <div id="recommend-section" class="section-inner">
+    <h3 class="tit-vertical"><p>RECOMMEND</p></h3>
+    <div class="section-content">
+      <div id="recommend">
+        <a href="../hair-spray/index.html">
+          <span class="pic"><img src="../../../img/01_hair_spray_mr.png" alt="ムービングロックスプレー エクストラハード" /></span>
+          <p class="name"><span>MOVING LOCK SPRAY</span>STRONG HOLDING YET RESILIENT</p>
+        </a>
+      </div>
+    </div><!-- .section-content -->
+  </div>
+</section>#}
+      <!-- .recommend end -->      <!-- .recommend end -->
+
+    </div><!-- .content-inner -->
+
+  </div><!-- .content-wrapper -->

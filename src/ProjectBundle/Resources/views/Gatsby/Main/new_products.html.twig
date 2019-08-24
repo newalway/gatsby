@@ -1,0 +1,69 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+  <script src="{{asset('gatsby/js/jssor.slider-27.5.0.min.js')}}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+
+
+<section id="product-series" class="series">
+  <div class="container-fluid">
+	  <h1 class="text-center product-title">NEW PRODUCT</h1>
+	{% if (new_products|length > 0) %}
+	{% for serie in new_products %}
+	<div class="box-width">
+	  <a href="{{path('product_series_list', {'id':serie.id,'category':serie.productCategory.getTitle|slug ,'series':serie.getTitle|slug })}}">
+		<div class="box">
+		  <div class="box-content">
+			<div class="col-xs-12 col-md-12 col-lg-12">
+			  <div class="title-category text-center">
+				  {{serie.getTitle}}
+			  </div>
+			</div>
+			<div class="col-xs-12 col-md-12 col-lg-12">
+
+			  <div class="image-category text-center">
+				  <div class="new-products-label">
+					  <img width="50" src="{{asset('gatsby/images/new-icon.png')}}" >
+				  </div>
+				  {#{% if (serie.products.isNew == 1)%}
+					  <img width="50" src="{{asset('gatsby/images/new-icon.png')}}" >
+				  {% endif %}#}
+				  {% if (serie.getImage|length > 0)%}
+				  <img style="margin:0 auto;"class="img-responsive" src="{{asset(serie.getImage)|imagine_filter('img_h_150')}}"  alt="{{serie.getTitle}}"/>
+                  {% else %}
+
+                    <img style="margin:0 auto;"class="img-responsive" src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_150')}}" >
+				  {% endif %}
+			  </div>
+			</div>
+
+		  </div>
+	  </a>
+	  </div>
+	</div>
+	{% endfor %}
+	{% else %}
+		<div class="panel panel-body text-center">
+			ไม่มีสินค้าในหมวดหมู่ 	{% if (categories|length > 0) %}{{categories[0].getTitle}}{% endif %}
+		</div>
+	{% endif %}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+{% endblock %}

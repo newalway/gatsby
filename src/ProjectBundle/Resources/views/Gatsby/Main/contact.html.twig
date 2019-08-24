@@ -1,0 +1,181 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | CONTACT US {{ parent() }}{% endblock %}
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~  path('contact')}}">
+<meta property="og:image" content="{{app.request.getSchemeAndHttpHost() ~ asset('gatsby/original/img/og_common.png')}}" />
+<meta property="og:title" content="GATSBY | CONTACT US">
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+  <div id="breadcrumbs">
+    <ol class="content-inner">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+	  <li>CONTACT US</li>
+    </ol>
+  </div>
+{% endblock %}
+{% block body_class %}page-template page-template-page page-template-salon page-template-pagesalon-php page page-id-17{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/movie.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/bootstrap.min.css')}}">
+
+<style>
+input[type=text], textarea,input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.submit {
+  background-color: #333; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.submit:hover { background-color:#444; }
+
+.message-box { margin-top:53px; }
+
+.error { border:1px solid #F00; padding:10px; font-size:11px; color:#F00; margin-bottom:10px; }
+
+@media all and (max-width: 768px) {
+
+.movie-top ul li:nth-child(-n+3) {
+        margin-top: 0px; }
+
+.message-box { margin-top:0px; }
+
+
+}
+.respinsive-i {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.respinsive-i iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.title-contact {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 38px;
+    font-size: 3.8rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.1em;
+}
+.subtitle-contact{
+  font-size: 20px;
+  font-size: 1.8rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+.text-error{color:#db2929;}
+
+@media (max-width: 768px){
+.title-contact  {
+    font-size: 26px;
+    font-size: 2.6rem;
+    margin-bottom: 30px;
+}
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="http://www.gatsbythailand.com/assets/css/main.css"> -->
+<section class="content-wrapper">
+<div class="container text-left">
+	<!-- <h1 class="tit-movie pdt">CONTACT US</h1> -->
+	<div class="col-sm-6 col-md-6 col-lg-6">
+		<!-- <div class="company-name">
+			<b class="contact-company-name">Mandom Corporation (Thailand) Limited</b>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<p class="contact-address">เลขที่ 98 อาคารสาทรสแควร์ ชั้น 28 ถ.สาทรเหนือ แขวงสีลม เขตบางรัก กรุงเทพมหานคร 10500</p>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<p class="contact-info">Tel: (0)2163-2828-31  <br>Fax: (0)2163-2832 <br>Email: info@mandom.co.th</p>
+		</div> -->
+    <h4 class="title-contact text-left">Our office</h4>
+		<b class="subtitle-contact">Mandom Corporation (Thailand) Limited</b>
+		<p>เลขที่ 98 อาคารสาทรสแควร์ ชั้น 28 <br>
+			ถ.สาทรเหนือ แขวงสีลม เขตบางรัก<br>
+			กรุงเทพมหานคร 10500
+		</p>
+		<p>Tel: +66(0)2163-2828-31 <br>
+		   Fax: (0)2163-283 <br>
+		   Email: info@mandom.co.th
+		</p>
+<div class="respinsive-i">
+  		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1937.9717368279867!2d100.5292113!3d13.7218721!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x691ec387b1b9a142!2sMandom+Corporation+Ltd.!5e0!3m2!1sen!2sth!4v1561973275655!5m2!1sen!2sth" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+	</div>
+  <div class="col-sm-6 col-md-6 col-lg-6" ng-app="contactApp" ng-controller="contactController">
+	  <h4 class="title-contact text-left">Send us a message</h4>
+	  <form class="home-contact-form contact-form" ng-submit="processForm()">
+		  <input type="hidden" name="contact[_token]" id="contact__token" value="{{form._token.vars.value}}">
+		  <div class="alert ng-cloak" role="alert" ng-show="message" ng-class="success ? 'alert-success' : 'alert-danger'" style="border-radius:0;">
+			  <div class="close" ng-click="message=false"><span style="font-family: Roboto;">&times;</span></div>
+			  <span class="message-text" ng-bind="message"></span>
+		  </div>
+			<div class="form-group">
+			  <input class="" type="text" placeholder="{% trans %}contact.name{% endtrans %} *" ng-model="formData.name" ng-class="{ 'border-error' : errors.name }">
+			  <p class="help-block"><div class="text-error" ng-show="errors.name" ng-bind="errors.name"></div></p>
+			</div>
+			<div class="form-group">
+				<input class=""  type="text" placeholder="{% trans %}contact.phone{% endtrans %} *" ng-model="formData.telephone_number" ng-class="{ 'border-error' : errors.telephone_number }">
+			  <p class="help-block"><div class="text-error" ng-show="errors.telephone_number" ng-bind="errors.telephone_number"></div></p>
+			</div>
+			<div class="form-group">
+				  <input class="" type="email" placeholder="{% trans %}contact.email{% endtrans %}" ng-model="formData.email" ng-class="{ 'border-error' : errors.email }">
+			  <p class="help-block"><div class="text-error" ng-show="errors.email" ng-bind="errors.email"></div></p>
+			</div>
+			<div class="form-group">
+					<textarea class="" cols="1" rows="11" placeholder="{% trans %}contact.message{% endtrans %} *" ng-model="formData.message" ng-class="{ 'border-error' : errors.message }"></textarea>
+			  <p class="help-block"><div class="text-error" ng-show="errors.message" ng-bind="errors.message"></div></p>
+			</div>
+			  <div class="col-md-12 text-center" style="height:50px;">
+				  <button type="submit" class="submit" ng-hide="getDataLoading()"><span>{% trans %}contact.send{% endtrans %} <i class="fa fa-caret-right"></i></span></button>
+				  <i ng-show="getDataLoading()" class="fa fa-circle-o-notch fa-spin fa-2x ng-cloak"></i>
+			  </div>
+
+	  </form>
+  </div>
+</div>
+</section>
+{% endblock %}
+{% block javascripts_body %}
+    {{ parent() }}
+    <script src="{{ asset('javascripts/contactApp.js') }}"></script>
+{% endblock %}

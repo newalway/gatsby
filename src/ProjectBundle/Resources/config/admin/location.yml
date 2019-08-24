@@ -1,0 +1,38 @@
+admin_location:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminLocation:index}
+  methods:  [GET]
+
+admin_location_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminLocation:new}
+  methods:  [GET,POST]
+
+admin_location_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminLocation:edit}
+  methods:  [GET,POST]
+  requirements:
+    id: \d+
+
+admin_location_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminLocation:delete}
+  methods:  [GET]
+  requirements:
+    id: \d+
+
+admin_location_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminLocation:group_delete}
+  methods:  [POST]
+
+admin_location_sort:
+  path: /sort
+  defaults: {_controller: ProjectBundle:AdminLocation:sort}
+  methods:  [GET]
+
+admin_location_sort_prosess:
+  path: /sort-prosess
+  defaults: {_controller: ProjectBundle:AdminLocation:sort_prosess}
+  methods:  [POST]

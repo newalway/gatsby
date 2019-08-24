@@ -1,0 +1,42 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | STYLE GUIDE {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="container-fluid">
+	<ul class="breadcrumb">
+		<li><a href="{{path('homepage')}}">HOME</a></li>
+		<li>STYLE GUIDE</li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+
+<section >
+	<div class="container-fluid">
+
+		{% if data|length > 0 %}
+				{{data.getContent|raw}}
+		{% endif %}
+
+	</div>
+
+</section>
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+
+
+{% endblock %}

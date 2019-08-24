@@ -1,0 +1,24 @@
+{% extends "FOSUserBundle::bundle-layout.html.twig" %}
+
+{% block title %}{% trans %}member.personal.register{% endtrans %} | {{ parent() }}{% endblock %}
+
+{% block body_class %}{{ parent() }} fos-regis{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}member.personal.register{% endtrans %}{% endblock %}
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}member.personal.register{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+
+{% endblock %}
+
+{% block content %}
+  {% include "@FOSUser/Registration/register_content.html.twig" %}
+{% endblock content %}

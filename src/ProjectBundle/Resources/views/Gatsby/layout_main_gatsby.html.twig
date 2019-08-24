@@ -1,0 +1,166 @@
+{% extends 'ProjectBundle::base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block html_description %}{% endblock %}
+{% block html_keywords %}{% endblock %}
+
+{% block html_meta %}
+	{{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+
+{#<link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/style-gatsby.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/bootstrap.min.css')}}">#}
+
+
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/common.css')}}">
+
+
+
+{##########################################################################}
+
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('gatsby/images/favicon.ico')}}" />
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+
+
+  <script src="{{asset('gatsby/js/angular/angular.min.js')}}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-animate.min.js" integrity="sha256-q7tlo0YlQUo5m74T1lM9ajppS5rZo+S112C1n0A+pLY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-route.min.js" integrity="sha256-gYQndjD7hxGnf+LCkZWhxVbkHMOiHTgqdpxT7r5zeg8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-aria.min.js" integrity="sha256-SpM/Nw6rLGhhYoMgpAMTB1r7dUn9RQazPpC1netc71c=" crossorigin="anonymous"></script>
+  <script src="{{asset('gatsby/original/js/lib.js')}}"></script>
+  <script src="{{asset('gatsby/original/js/script.js')}}"></script>
+  <script
+    src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+    crossorigin="anonymous"></script>
+  <script>$(function(){TopPage.init();});</script>
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129082405-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-129082405-1');
+	</script> -->
+{% endblock %}
+
+{% block body %}
+<header id="header" class="header">
+  <div class="logo"><a href="{{path('homepage')}}">GATSBY</a></div>
+  <div class="search">
+    <p class="searchText">SEARCH</p>
+    <div class="searchBody">
+      <div class="searchBodyInner">
+         <script>
+          (function() {
+            var cx = '002741269209085778802:hvblqpmmu2q';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:searchbox-only></gcse:searchbox-only>
+      </div>
+    </div>
+  </div><!-- /search -->
+  <div class="drawer-btn" id="drawer-btn">
+    <div class="drawer-btn-inner">
+      <div class="drawer-btn-inner2">
+        <div class="icon">
+          <span></span><span></span><span></span>
+        </div>
+        <p>MENU</p>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-content" id="drawer-content">
+    <div class="drawer-content-logo"><a href="{{path('homepage')}}">GATSBY</a></div>
+    <nav>
+      <ul>
+        <li class="products">
+          <a href="{{path('products')}}" class="hover" data-chaffle="en">PRODUCTS</a>
+          <div class="products-list">
+            <div class="products-list-inner">
+              {{ render(controller('ProjectBundle:Main:_menuProducts',{'_route': app.request.get('_route'),'_route_params': app.request.get('_route_params')})) }}
+            </div>
+          </div>
+        </li>
+        <li class="movie"><a href="{{path('movies')}}" class="hover" data-chaffle="en">MOVIE</a></li>
+        <li class="videos"><a href="{{path('styling')}}" class="hover" data-chaffle="en">STYLING</a></li>
+        <!-- <li class="retailers"><a href="#" class="hover" data-chaffle="en">RETAILERS</a></li> -->
+        <li class="contact-us"><a href="{{path('contact')}}" class="hover" data-chaffle="en">CONTACT US</a></li>
+        <li class="sitemap"><a href="{{path('sitemap')}}" class="hover" data-chaffle="en">SITEMAP</a></li>
+      </ul>
+    </nav>
+    <div class="sns">
+      <ul>
+        <li class="facebook"><a href="https://www.facebook.com/GatsbySingapore/?fref=ts" target="_blank" class="facebook">Facebook</a></li>
+        <!-- <li class="instagram"><a href="https://www.instagram.com/gatsbysg/" target="_blank" class="instagram">Instagram</a></li> -->
+        <li class="youtube"><a href="https://www.youtube.com/channel/UCdSATMFLCEWunULxA-0oOig" target="_blank" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+  </div>
+</header><!-- /header -->
+
+
+
+	{% block content %}{% endblock %}
+	{% block breadcrumb %}{% endblock %}
+
+
+
+<footer id="footer" class="footer">
+  <div class="pagetop" id="pagetop"><p>PAGE TOP</p></div>
+  <div class="footer-inner">
+    <div class="logo"><span class="image">mandom</span></div>
+    <div class="footer-content">
+      <nav>
+        <ul>
+          <!-- <li><a href="site-policy/index.html">Site Policy</a></li>
+          <li><a href="privacy-policy/index.html">Privacy Policy</a></li>
+
+        </ul> -->
+      </nav>
+      <div class="buttons">
+        <ul class="site">
+          <li><a href="{{path('sitemap')}}" class="sitemap">SITE MAP</a></li>
+          <li><a href="https://www.gatsbyglobal.com/" target="_blank" class="global">GATSBY GLOBAL</a></li>
+        </ul>
+        <ul class="sns">
+          <li><a href="https://www.facebook.com/gatsbythailand" target="_blank" class="facebook">Facebook</a></li>
+          <!-- <li><a href="https://www.instagram.com/gatsbythailand/" target="_blank" class="instagram">Instagram</a></li> -->
+          <li><a href="https://www.youtube.com/channel/UCYGEAiDPfy9F-0vocqyc_OQ" target="_blank" class="youtube">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="annotation">
+      <p class="copyright">Copyright 1996-2019 mandom corp.</p>
+    </div>
+  </div>
+</footer><!-- /footer -->
+{% endblock %}
+
+{% block javascripts_body %}
+	{{ parent() }}
+  <!-- <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+
+{% endblock %}

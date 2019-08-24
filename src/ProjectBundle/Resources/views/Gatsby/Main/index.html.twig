@@ -1,0 +1,237 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | HOME {{ parent() }}{% endblock %}
+
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~ path('homepage')}}">
+<meta property="og:image" content="{{app.request.getSchemeAndHttpHost() ~  asset('gatsby/original/img/og_common.png')}}" />
+<meta property="og:title" content="GATSBY | HOME">
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/index.css')}}">
+
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+<body class="home blog">
+<div id="Intro">
+  <div class="finger"><img src="{{asset('gatsby/original/img/top/finger.svg')}}" alt=""></div>
+  <!-- <div class="arrows">
+    <div class="arrowsInner">
+      <div class="arrow"><span></span></div>
+      <div class="arrow"><span></span></div>
+      <div class="arrow"><span></span></div>
+    </div>
+  </div> -->
+  <p class="swipe"><span>S</span><span>W</span><span>I</span><span>P</span><span>E</span></p>
+  <p class="scroll"><span>S</span><span>C</span><span>R</span><span>O</span><span>L</span><span>L</span></p>
+</div>
+
+
+<div class="top-wrapper">
+  <div class="content-wrapper top-mainvis-block">
+    <div id="loading"></div>
+    <div class="content-inner">
+      <section id="Kv">
+        <div id="ContentsKvWrapper">
+          <div id="ContentsKvInner" class="contentsKvInner">
+
+
+          {% for banner in banners %}
+            <div class="ContentsKv slide-{{loop.index}}" data-id="slide-{{loop.index}}">
+              <a href="#dressing-pomade" title="">
+                <div class="ContentsKvMain" >
+                  <!-- <div class="ContentsKvMainInner d-none d-md-block" style="background: url('{{asset(banner.getImageMobile)}}') no-repeat 50% 50%/cover;"></div> -->
+                      <div class="bg">
+                        <img class="ContentsKvMainInner d-sm-block d-none" src="{{asset(banner.getImage)}}" alt="" style="background-size: cover;">
+                        <img class="ContentsKvMainInner d-sm-none d-block" src="{{asset(banner.getImageMobile)}}" alt="" style="background-size: cover;">
+                        <!-- <div class="ContentsKvMainInner  d-none d-md-block" style="background: url(https://gatsby.net.vn/wp-content/uploads/2018/12/Banner_Pomade_final_PC.jpg) no-repeat 50% 50%/cover;"></div>
+                        <div class="ContentsKvMainInner d-md-none" style="background: url(https://gatsby.net.vn/wp-content/uploads/2018/12/Banner_Pomade_final_MB.jpg) no-repeat 50% 50%/cover;"></div> -->
+                      </div>
+                        {#
+                        <img class="ContentsKvMainInner" src="{{asset(banner.getImage)}}" alt="">
+                        <img class="ContentsKvMainInner" src="{{asset(banner.getImage)}}" alt="">
+                        #}
+                  <!-- <div class="ContentsKvMainInner">
+                    <div class="bg"></div>
+                  </div> -->
+                </div>
+                <div class="ContentsKvInfo">
+                  <div class="ContentsKvInfoInner">
+                    <div class="no"><span>{{loop.index}}</span>/ {{banners|length}} </div>
+                    <p>  {{(banner.getSubtitle|nl2br)}}</p>
+                    </div>
+                </div>
+              </a>
+            </div>
+          {% endfor  %}
+          </div>
+        </div>
+        <div id="ContentsBtns">
+          <div id="ContentsBtnsInner" class="contentsBtnsInner">
+            {% for banner in banners %}
+            <div class="btn slide-{{loop.index}}" data-id="slide-{{loop.index}}" data-index="{{loop.index - 1}}">
+              <div class="btnInner">
+                <div class="on"><span>{{banner.series.getTitle}}</span></div>
+                <div class="off"><span data-chaffle="en">{{banner.series.getTitle}}</span></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+<div class="content-wrapper top-content-block">
+  <div class="content-inner">
+    <div id="ContentsBodyWrapper">
+      <div class="ContentsBodyTitles">
+        {% for banner in banners %}
+            <div class="tit-vertical sticky" data-index="{{loop.index - 1}}"><p data-chaffle="en">{{banner.series.getTitle}}</p></div>
+        {% endfor %}
+      </div>
+      <div id="ContentsBodyInner">
+          {% for banner in banners %}
+         <div class="ContentsBody products" id="slide-id-{{loop.index}}" data-id="slide-{{loop.index}}">
+          <div class="section-block products-block">
+            <div class="section-inner">
+            <div class="section-content">
+            <ul>
+              {% for product in banner.series.products %}
+                  <li>
+                    <a href="{{path('product_series_list', {'id':banner.series.id,'category':banner.series.getTitle|slug ,'series': banner.series.getTitle|slug })}}">
+                      <div class="box"></div>
+                      <span class="pic"><img src="{{product.image}}" alt="{{product.getTitle}}"></span>
+                      <h2>{{product.getTitle}}</h2>
+                    </a>
+                  </li>
+              {% endfor  %}
+            </ul>
+            </div>
+            </div><!-- .section-inner -->
+
+          </div><!-- .section-block  -->
+        </div><!-- .ContentsBody -->
+        {% endfor  %}
+
+      </div><!-- #ContentsBodyInner -->
+    </div><!-- #ContentsBodyWrapper -->
+
+    <div class="news-sns-block">
+      <div class="search-home">
+        <div class="search-inner">
+          <p class="searchText-sp">SEARCH</p>
+          <div class="searchBody">
+        <div class="searchBodyInner">
+        <script>
+          (function() {
+            var cx = '007824822531287472378:uvf2ko5dhaw';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:searchbox-only></gcse:searchbox-only>
+      </div>
+    </div>
+        </div>
+      </div><!-- /search -->
+
+
+
+      <section class="section-block split">
+        <div class="sns-section section-inner sns-section-block">
+          <h3 class="tit-vertical sticky"><p>SNS</p></h3>
+          <div class="section-content">
+            <ul>
+
+              <li class="facebook"><a href="https://www.facebook.com/gatsbythailand" target="_blank">Facebook</a></li>
+              <!-- <li class="instagram"><a href="https://www.instagram.com/gatsbythailand/" target="_blank">Instagram</a></li> -->
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCYGEAiDPfy9F-0vocqyc_OQ" target="_blank">YouTube</a></li>
+            </ul>
+          </div>
+        </div><!-- .sns-section -->
+		<div class="shop-section section-inner">
+		  <h3 class="tit-vertical sticky"><p>SHOP ONLINE</p></h3>
+		  <div class="section-content">
+			<ul>
+
+			  <li style="width:100px;height:35px;" >
+
+          <a href="https://www.lazada.co.th/shop/gatsby-official-1524130169/?spm=a2o4m.searchlistbrand.card.1.2ea74351K6crvH&from=onesearch_brand_98449" target="_blank" style="background: url({{asset('gatsby/images/shop/lazada-logo.png')}}) no-repeat 50% 50%/contain">
+              <img class="amazon" src="{{asset('gatsby/images/shop/lazada-logo.png')}}"/>
+          </a>
+        </li>
+
+        <li style="width:100px;height:35px;" >
+
+          <a href="https://shopee.co.th/gatsby_official_shop" target="_blank" style="background: url({{asset('gatsby/images/shop/shopee.png')}}) no-repeat 50% 50%/contain">
+              <img class="amazon" src="{{asset('gatsby/images/shop/shopee.png')}}"/>
+          </a>
+        </li>
+
+			</ul>
+		  </div>
+		</div><!-- .shop-section -->
+      </section><!-- .section-block -->
+    </div><!-- .news-sns-block -->
+
+
+  </div><!-- .content-inner -->
+</div><!-- .content-wrapper -->
+
+  </div>
+
+
+<div id="breadcrumbs">
+<ol class="content-inner">
+</ol>
+</div>
+<!-- /bread-list -->
+
+
+
+</body>
+<script type="text/javascript">
+window.addEventListener("orientationchange", function() {
+ location.reload();
+}, false);
+// window.addEventListener("resize", function() {
+//  location.reload();
+// }, false);
+// $(window).bind('resize', function(e)
+// {
+//   if (window.RT) clearTimeout(window.RT);
+//   window.RT = setTimeout(function()
+//   {
+//     this.location.reload(false); /* false to get page from cache */
+//   }, 100);
+// });
+</script>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "FOSUserBundle::bundle-layout.html.twig" %}
+
+{% block title %}{% trans %}menu.login{% endtrans %} {{ parent() }}{% endblock %}
+
+{% block body_class %}{{ parent() }} fos-login{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}login.title{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+<link rel="stylesheet" href="{{ asset('gatsby/css/login.min.css') }}">
+
+{% endblock %}
+{% block content %}
+<section class="content-wrapper">
+    <div class="limiter">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+              <div class="container-login100 p-5">
+                  <div class="wrap-login100 p-t-50 p-b-90">
+                      <form action="{{ path("fos_user_security_check") }}" method="post" class="login100-form validate-form flex-sb flex-w">
+                          <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                          <span class="login100-form-title p-b-51 pb-3">Login</span>
+                          {% if error %}
+                              <div class="alert alert-danger" role="alert">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  {{ error.messageKey|trans(error.messageData, 'security') }}
+                              </div>
+                          {% endif %}
+                          <div class="wrap-input100 form-group validate-input m-b-16" data-validate="Username is required">
+                              <input class="input100" type="text" id="username" type="text" name="_username" autocomplete="off" required="required" autofocus placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}">
+                              <span class="focus-input100"></span>
+                          </div>
+                          <div class="wrap-input100  form-group validate-input m-b-16" data-validate="Password is required">
+                              <input class="input100" id="password" type="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}">
+                              <span class="focus-input100"></span>
+                          </div>
+                          <div class="flex-sb-m w-full p-t-3 p-b-24">
+                              <div class="contact100-form-checkbox">
+                                  <input class="input-checkbox100" id="remember_me" type="checkbox" name="remember-me" name="_remember_me" value="on">
+                                  <label class="label-checkbox100" for="remember_me"> {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                              </div>
+                              <div>
+                                  <a href="#" class="txt1">
+                                      <a href="{{path('fos_user_resetting_request')}}" class="forget-pass">{{ 'security.login.forgot_password'|trans({}, 'FOSUserBundle')}} ?</a>
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="container-login100-form-btn m-t-17">
+                              <button class="login100-form-btn" name="_submit" type="submit">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }} </button>
+                          </div>
+                      </form>
+                  </div>{# .wrap-login100 #}
+              </div>{# .container-login100 #}
+        {% else %}
+            <p class="text-center p-5">
+                You are already logged in. Please sign out of your other session first. <br>
+				Or <br>
+                    <button type="button" name="button">logout |  Managment</button>
+            </p>
+        {% endif %}
+    </div>{# .limiter #}
+</section>
+
+
+{% endblock %}

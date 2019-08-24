@@ -1,0 +1,90 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | CONTACT US {{ parent() }}{% endblock %}
+{% block contact_active %}active{% endblock %}
+{% block m_contact_active %}active{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+  {{ parent() }}
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+      <li>CONTACT US</li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+        <!-- <link rel="stylesheet" href="http://www.gatsbythailand.com/assets/css/main.css"> -->
+    <section class="contact-us">
+        <div class="container text-left">
+            <h1 class="text-center contact-us-title">CONTACT US</h1>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="company-name">
+                    <h3 class="contact-company-name">Mandom Corporation (Thailand) Limited</h3>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <p class="contact-address">เลขที่ 98 อาคารสาทรสแควร์ ชั้น 28 ถ.สาทรเหนือ แขวงสีลม เขตบางรัก กรุงเทพมหานคร 10500</p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <p class="contact-info">Tel: (0)2163-2828-31  <br>Fax: (0)2163-2832 <br>Email: info@mandom.co.th</p>
+                </div>
+
+
+            </div>
+          <div class="col-sm-6 col-md-6 col-lg-6" ng-app="contactApp" ng-controller="contactController">
+              <form class="home-contact-form contact-form" ng-submit="processForm()">
+                  <input type="hidden" name="contact[_token]" id="contact__token" value="{{form._token.vars.value}}">
+                  <div class="alert ng-cloak" role="alert" ng-show="message" ng-class="success ? 'alert-success' : 'alert-danger'" style="border-radius:0;">
+                      <div class="close" ng-click="message=false"><span style="font-family: Roboto;">&times;</span></div>
+                      <span class="message-text" ng-bind="message"></span>
+                  </div>
+                    <div class="form-group">
+                      <label for=""></label>
+                      <input class="form-control" type="text" placeholder="{% trans %}contact.name{% endtrans %} *" ng-model="formData.name" ng-class="{ 'border-error' : errors.name }">
+                      <p class="help-block"><div class="text-error" ng-show="errors.name" ng-bind="errors.name"></div></p>
+                    </div>
+                    <div class="form-group">
+                      <label for=""></label>
+                        <input class="form-control"  type="text" placeholder="{% trans %}contact.phone{% endtrans %} *" ng-model="formData.telephone_number" ng-class="{ 'border-error' : errors.telephone_number }">
+                      <p class="help-block"><div class="text-error" ng-show="errors.telephone_number" ng-bind="errors.telephone_number"></div></p>
+                    </div>
+                    <div class="form-group">
+                      <label for=""></label>
+                          <input class="form-control" type="email" placeholder="{% trans %}contact.email{% endtrans %}" ng-model="formData.email" ng-class="{ 'border-error' : errors.email }">
+                      <p class="help-block"><div class="text-error" ng-show="errors.email" ng-bind="errors.email"></div></p>
+                    </div>
+                    <div class="form-group">
+                      <label for=""></label>
+                            <textarea class="form-control"  placeholder="{% trans %}contact.message{% endtrans %} *" ng-model="formData.message" ng-class="{ 'border-error' : errors.message }"></textarea>
+                      <p class="help-block"><div class="text-error" ng-show="errors.message" ng-bind="errors.message"></div></p>
+                    </div>
+                      <div class="col-md-12 text-center" style="height:50px;">
+                          <button type="submit" class="btn btn-default" ng-hide="getDataLoading()"><span>{% trans %}contact.send{% endtrans %} <i class="fa fa-caret-right"></i></span></button>
+                          <i ng-show="getDataLoading()" class="fa fa-circle-o-notch fa-spin fa-2x ng-cloak"></i>
+                      </div>
+
+              </form>
+          </div>
+        </div>
+        <div class="container-fluid text-left">
+          <img width="100%"src="{{asset('gatsby/images/img-map.jpg')}}">
+        </div>
+    </section>
+
+    <!-- <section class="home-google-map">
+        <div class="google-map" id="contact-google-map" data-map-lat="13.78607139505944" data-map-lng="100.46938572300769" data-icon-path="{{ app.request.getSchemeAndHttpHost() ~ asset('images/marathon/map-marker.png') }}" data-map-title="Marathon (Thailand) Co.,Ltd." data-map-zoom="17"></div>
+    </section>
+
+    <div class="footer-texture"></div> -->
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+    <script src="{{ asset('javascripts/contactApp.js') }}"></script>
+{% endblock %}

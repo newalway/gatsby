@@ -1,0 +1,38 @@
+admin_series:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminSeries:index}
+  methods:  [GET]
+
+admin_series_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminSeries:new}
+  methods:  [GET,POST]
+
+admin_series_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminSeries:edit}
+  methods:  [GET,POST]
+  requirements:
+    id: \d+
+
+admin_series_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminSeries:delete}
+  methods:  [GET]
+  requirements:
+    id: \d+
+
+admin_series_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminSeries:group_delete}
+  methods:  [POST]
+
+admin_series_sort:
+  path: /sort
+  defaults: {_controller: ProjectBundle:AdminSeries:sort}
+  methods:  [GET]
+
+admin_series_sort_prosess:
+  path: /sort-prosess
+  defaults: {_controller: ProjectBundle:AdminSeries:sort_prosess}
+  methods:  [POST]

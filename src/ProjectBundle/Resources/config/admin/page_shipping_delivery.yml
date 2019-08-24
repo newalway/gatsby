@@ -1,0 +1,12 @@
+admin_page_shipping_delivery:
+  path:  /
+  defaults: { _controller: ProjectBundle:AdminPageShippingDelivery:index }
+  requirements:
+    _method: get
+
+admin_page_shipping_delivery_update:
+  path: /update
+  defaults: {_controller: ProjectBundle:AdminPageShippingDelivery:update}
+  requirements:
+    _method: post
+    id: \d+

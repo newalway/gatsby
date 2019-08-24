@@ -1,0 +1,41 @@
+checkout:
+  path: /
+  defaults: {_controller: ProjectBundle:Checkout:index}
+  requirements:
+    _method: get
+
+checkout_success:
+  path: /checkout-success
+  defaults: {_controller: ProjectBundle:Checkout:checkout_success}
+  requirements:
+    _method: get,post
+
+checkout_update_delivery_address:
+    path: /updatedeliveryaddress
+    defaults: {_controller: ProjectBundle:Checkout:updateDeliveryAddress}
+    requirements:
+        _method: get
+    options:
+        expose: true
+
+checkout_add_delivery_address:
+    path: /adddeliveryaddress
+    defaults: {_controller: ProjectBundle:Checkout:addDeliveryAddress}
+    requirements:
+        _method: post
+    options:
+        expose: true
+
+checkout_set_payment_option:
+    path: /setpaymentoption
+    defaults: {_controller: ProjectBundle:Checkout:setPaymentOption}
+    requirements:
+        _method: get
+    options:
+        expose: true
+
+checkout_place_order:
+    path: /placeorder
+    defaults: {_controller: ProjectBundle:Checkout:placeOrder}
+    requirements:
+        _method: post

@@ -1,0 +1,3 @@
+admin_test:
+  path: /
+  defaults: { _controller: ProjectBundle:AdminTest:index }

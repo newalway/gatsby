@@ -1,0 +1,541 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{asset('gatsby/js/jssor/jssor.js')}}"></script>
+    <script src="{{asset('gatsby/js/jssor/jssor.player.ytiframe.js')}}"></script>
+    <script src="{{asset('gatsby/js/jssor/jssor.slider.js')}}"></script>
+
+{% endblock %}
+
+{% block content %}
+<section class="row">
+    <div class="banner" id="slider1_container">
+        <!-- <div class="owl-carousel">
+            <?php foreach ($banner as $data):?>
+            <div class="item">
+                <img src="<?php echo base_url($data->image_path); ?>">
+            </div>
+            <?php endforeach; ?>
+        </div> -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
+                top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+            <div style="position: absolute; display: block; background: {{asset('images/loading.gif')}}) no-repeat center center;
+                top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="slides" u="slides">
+            {% if (banners|length > 0) %}
+                {% for banner in banners %}
+                <div class="slider-{{loop.index}}">
+                    {#<img  width="100%" u="image" src="{{asset("gatsby/images/banner/8/2015-GB-Banner-01-02.png")}}" />
+                    <div u="caption" t="FADE" d="2000" t3="NO"> #}
+                    <a href="{{banner.getWebsite}}">
+                    <img width="100%" height="500"class="img-{{loop.index +10}}" src="{{banner.getImage}}" style="" alt="{{banner.getTitle}}"/>
+                    </a>
+                </div>
+                {% endfor %}
+            {% endif %}
+                <!-- </div> -->
+
+          <!-- <div class="slider-9">
+               <img u="image" src="{{asset("gatsby/images/banner/9/bg.jpg")}}" />
+                   <img u="caption" t="ZMF|C" class="img-1" src="{{asset("gatsby/images/banner/9/Wording.png")}}" style="" />
+
+
+                   <img u="caption" t="ZMF|C" d=-200 class="img-2" src="{{asset("gatsby/images/banner/9/product.png")}}" style="" />
+
+
+                   <img u="caption" t="FADE2" class="img-3" src="{{asset("gatsby/images/banner/9/Model1.png")}}" style="" />
+
+                   <img u="caption" t="FADE2" class="img-4" src="{{asset("gatsby/images/banner/9/Model2.png")}}" style="" />
+
+                   <img u="caption" t="FADE2" class="img-5" src="{{asset("gatsby/images/banner/9/Model3.png")}}" style="" />
+
+           </div> -->
+          <!-- <div class="slider-8">
+                                  <img u="image" src="{{asset("gatsby/images/banner/8/2015-GB-Banner-01-02.png")}}" />
+                              </div>
+          <div class="slider-7">
+                                  <img u="image" src="{{asset("gatsby/images/banner/7/2015-GB-Banner-01-01.png")}}" />
+                              </div> -->
+
+  <!-- <div class="slider-6">
+                <img u="image" src="{{asset("gatsby/images/banner/8/2015-GB-Banner-01-02.png")}}" />
+                <div u="caption" t="FADE" d="2000" t3="NO">
+                    <img class="img-1" src="{{asset("gatsby/images/banner/7/2015-GB-Banner-01-01.png")}}" style="" />
+                </div>
+            </div> -->
+
+            <!-- <div class="slider-6">
+                <img u="image" src="{{asset("gatsby/images/banner/6/Bg_1920x794.png")}}" />
+                <div u="caption" t="FZL" t3="NO">
+                    <img class="img-1" src="{{asset("gatsby/images/banner/6/Key-Visual.png")}}" style="" />
+                </div>
+                <div u="caption" t="FZL" d=-2000 t3="NO">
+                    <img class="img-2" src="{{asset("gatsby/images/banner/6/25th-logo.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" t3="NO">
+                    <img class="img-3" src="{{asset("gatsby/images/banner/6/logo.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" t3="NO">
+                    <img class="img-4" src="{{asset("gatsby/images/banner/6/Detail-Message.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" du="600" t3="NO">
+                    <img class="img-5" src="{{asset("gatsby/images/banner/6/Prize-1.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" du="600" t3="NO">
+                    <img class="img-6" src="{{asset("gatsby/images/banner/6/Prize-2.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" du="600" t3="NO">
+                    <img class="img-7" src="{{asset("gatsby/images/banner/6/Prize-3.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" t3="NO">
+                    <img class="img-8" src="{{asset("gatsby/images/banner/6/Bill.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|C" d="-900" t3="NO">
+                    <img class="img-9" src="{{asset("gatsby/images/banner/6/Date.png")}}" style="" />
+                </div>
+            </div> -->
+            <!-- <div class="slider-5">
+                <img u="image" src="{{asset("gatsby/images/banner/5/images/bg.jpg")}}" />
+                <div u="caption" t="NO" >
+                    <img class="img-1" src="{{asset("gatsby/images/banner/5/images/logo.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-2" src="{{asset("gatsby/images/banner/5/images/Pic1.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|2" >
+                    <img src="{{asset("gatsby/images/banner/5/images/Pic2.png")}}" style="position: absolute; width: 10%; height: auto; top: 40%; left: 20%;" />
+                </div>
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-3" src="{{asset("gatsby/images/banner/5/images/Pic3.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-4" src="{{asset("gatsby/images/banner/5/images/Pic4.png")}}" style="" />
+                </div>
+                <div u="caption" t="T" >
+                    <img class="img-5" src="{{asset("gatsby/images/banner/5/images/Badge.png")}}" style="" />
+                </div>
+            </div> -->
+            <div class="slider-4">
+                <img u="image" src="{{asset("gatsby/images/banner/4/images/bg.png")}}" />
+                <div u="caption" t="T" >
+                    <img class="img-1" src="{{asset("gatsby/images/banner/4/images/Product.png")}}" style="" />
+                </div>
+                <div u="caption" t="R" d=-500 >
+                    <img class="img-2" src="{{asset("gatsby/images/banner/4/images/strip.png")}}" style="" />
+                </div>
+                <div >
+                    <img class="img-3" u="caption" t="ALL*" du="3000" d=-500 src="{{asset("gatsby/images/banner/4/images/Clay.png")}}" style="" />
+                </div>
+                <div u="caption" t="ZMF|2" d=-2500 >
+                    <img class="img-4" src="{{asset("gatsby/images/banner/4/images/howto.png")}}" style="" />
+                </div>
+                <div u="caption" t="T" d=-500 >
+                    <img class="img-5" src="{{asset("gatsby/images/banner/4/images/logo.png")}}" style="" />
+                </div>
+                <div u="caption" t="B" d=-500 >
+                    <img class="img-6" src="{{asset("gatsby/images/banner/4/images/productsub.png")}}" style="" />
+                </div>
+                <div >
+                    <img class="img-7" u="caption" t="ZMF|2" du="800" src="{{asset("gatsby/images/banner/4/images/Guaranty.png")}}" style="" />
+                </div>
+            </div>
+            <div class="slider-3">
+                <img u="image" src="{{asset("gatsby/images/banner/3/images/bg.jpg")}}" />
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-1" src="{{asset("gatsby/images/banner/3/images/Product1.png")}}" />
+                </div>
+                <div u="caption" t="ZMF|2" d=-500 >
+                    <img class="img-2" src="{{asset("gatsby/images/banner/3/images/Product2.png")}}" />
+                </div>
+                <div u="caption" t="B" du="2000" d=-1500 >
+                    <img class="img-3" src="{{asset("gatsby/images/banner/3/images/WhiteStrip.png")}}" />
+                    <img class="img-4" src="{{asset("gatsby/images/banner/3/images/name.png")}}" />
+                </div>
+                <div u="caption" t="R" d=-900 >
+                    <img class="img-5" src="{{asset("gatsby/images/banner/3/images/Copy.png")}}" />
+                </div>
+            </div>
+            <div class="slider-2">
+                <img u="image" src="{{asset("gatsby/images/banner/2/images/bg.png")}}" />
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-1" src="{{asset("gatsby/images/banner/2/images/copy1.png")}}" />
+               </div>
+                <div u="caption" t="ZMF|2" d=-500 >
+                    <img class="img-2" src="{{asset("gatsby/images/banner/2/images/copy.png")}}" />
+                </div>
+                <div u="caption" t="ZMF|2" >
+                    <img class="img-3" src="{{asset("gatsby/images/banner/2/images/Product.png")}}" />
+                </div>
+                <div u="caption" t="L" du="2000" d=-1000 >
+                    <img class="img-4" src="{{asset("gatsby/images/banner/2/images/Logo.png")}}" />
+                </div>
+                <div u="caption" t="B" du="2000" d=-2000 >
+                    <img class="img-5" src="{{asset("gatsby/images/banner/2/images/WhiteStrip.png")}}" />
+               </div>
+                <div u="caption" t="L-*IB" du="2000" d=-1000 >
+                    <img class="img-6" src="{{asset("gatsby/images/banner/2/images/Package.png")}}" />
+                </div>
+            </div>
+            <div class="slider-1">
+                <img u="image" src="{{asset("gatsby/images/banner/1/images/Bg.png")}}" />
+                <div u="caption" t="L" du="3000" >
+                    <img class="img-1" src="{{asset("gatsby/images/banner/1/images/P1-new.png")}}" />
+                </div>
+                <div u="caption" t="R" du="3000" d=-3000 >
+                    <img class="img-2" src="{{asset("gatsby/images/banner/1/images/P2-new.png")}}" />
+                </div>
+                <div u="caption" t="T" >
+                    <img class="img-3" src="{{asset("gatsby/images/banner/1/images/Name.png")}}" />
+                </div>
+                <div u="caption" t="CLIP|TB" >
+                    <img class="img-4" src="{{asset("gatsby/images/banner/1/images/NameSub.png")}}" />
+                </div>
+                <div u="caption" t="B" du="2000" d=-2200 >
+                    <img class="img-5" src="{{asset("gatsby/images/banner/1/images/Copy.png")}}" />
+                    <img class="img-6" src="{{asset("gatsby/images/banner/1/images/CopySub.png")}}" />
+                </div>
+            </div>
+        </div>
+
+        <!--#region Bullet Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+        <style>
+            /* jssor slider bullet navigator skin 21 css */
+            /*
+            .jssorb21 div           (normal)
+            .jssorb21 div:hover     (normal mouseover)
+            .jssorb21 .av           (active)
+            .jssorb21 .av:hover     (active mouseover)
+            .jssorb21 .dn           (mousedown)
+            */
+            .jssorb21 {
+                position: absolute;
+                z-index: 9999999;
+            }
+            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 19px;
+                height: 19px;
+                text-align: center;
+                line-height: 19px;
+                color: white;
+                font-size: 12px;
+                background: url({{asset("gatsby/images/banner/b173.png")}}) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .jssorb21 div { background-position: -5px -5px; }
+            .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+            .jssorb21 .av { background-position: -65px -5px; }
+            .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+        </style>
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb21" style="bottom: 26px; right: 6px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype"></div>
+        </div>
+        <!--#endregion Bullet Navigator Skin End -->
+
+        <style>
+            /* jssor slider arrow navigator skin 21 css */
+            /*
+            .jssora21l                  (normal)
+            .jssora21r                  (normal)
+            .jssora21l:hover            (normal mouseover)
+            .jssora21r:hover            (normal mouseover)
+            .jssora21l.jssora21ldn      (mousedown)
+            .jssora21r.jssora21rdn      (mousedown)
+            */
+            .jssora21l, .jssora21r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 55px;
+                height: 55px;
+                cursor: pointer;
+                background: url({{asset("gatsby/images/banner/a21.png")}}) center center no-repeat;
+                overflow: hidden;
+            }
+            .jssora21l { background-position: -3px -33px; }
+            .jssora21r { background-position: -63px -33px; }
+            .jssora21l:hover { background-position: -123px -33px; }
+            .jssora21r:hover { background-position: -183px -33px; }
+            .jssora21l.jssora21ldn { background-position: -243px -33px; }
+            .jssora21r.jssora21rdn { background-position: -303px -33px; }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora21l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora21r" style="top: 123px; right: 8px;">
+        </span>
+    </div>
+</section>
+
+<section id="video-fullwidht">
+  <div class="">
+    <div class="video-container">
+        <iframe width="100%"  height="480" src="https://www.youtube.com/embed/CJJbYPo3Wq4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="product-index" class="product-index">
+  <div class="container">
+    <h1 class="text-center product-title">PRODUCT LINEUP</h1>
+
+</div>
+
+<div class="container-fluid" >
+    <div class="product-list"  style="background:#fff">
+                    <div class="row">
+                        {% if (product_categories|length > 0)%}
+                            {% for cat in product_categories %}
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 skew-wrap">
+                                    <div class="box skews">
+                                          <a href="{{path('product_series', {'id':cat.id, 'slug':cat.getTitle|slug })}}">
+                                            <div class="row no-border align-middle" style="margin: 0;">
+                                                <div class="col-xs-6 col-md-6 col-sm-6 product-list-title">
+                                                     {{cat.getTitle}}
+                                                </div>
+                                                <div class="col-xs-6 col-md-6 col-sm-6 product-icon text-center">
+                                                     <img class="" src="{{asset(cat.getImage)|imagine_filter('img_h_100')}}"  alt="{{cat.getTitle}}"/>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+
+            <!-- <div class="col-md-6 small-12 columns skew-wrap">
+                                <div class="box skews">
+                                    <a href="https://gatsby.co.id/product/fragrance">
+                                        <div class="row no-border align-middle" style="margin: 0;">
+                                            <div class="small-7 columns product-list-title">
+                                                Fragrance
+                                            </div>
+                                            <div class="small-4 columns product-icon">
+                                                <img src="https://gatsby.co.id/media/product/category/banner-fragrance.png" alt="Product">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                                                <div class="col-md-6 small-12 columns skew-wrap">
+                                <div class="box skews">
+                                    <a href="https://gatsby.co.id/product/face-care">
+                                        <div class="row no-border align-middle" style="margin: 0;">
+                                            <div class="small-7 columns product-list-title">
+                                                Face Care
+                                            </div>
+                                            <div class="small-4 columns product-icon">
+                                                <img src="https://gatsby.co.id/media/product/category/banner-face-care.png" alt="Product">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                                                <div class="col-md-6 small-12 columns skew-wrap">
+                                <div class="box skews">
+                                    <a href="https://gatsby.co.id/product/body-care">
+                                        <div class="row no-border align-middle" style="margin: 0;">
+                                            <div class="small-7 columns product-list-title">
+                                                Body Care
+                                            </div>
+                                            <div class="small-4 columns product-icon">
+                                                <img src="https://gatsby.co.id/media/product/category/banner-body-care.png" alt="Product">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> -->
+                                                                                </div>
+                </div>
+</div>
+
+
+
+</section>
+
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+ <!-- <script type="text/javascript">
+          jQuery(document).ready(function ($) {
+            var banner = "{{banners|json_encode()}}";
+            var bannerObj = JSON.parse(banner);
+            //console.log(tasksObj.length);
+            if (bannerObj.length > 0) {
+              var jssor_1_options = {
+                $AutoPlay: 1,
+                $SlideDuration: 800,
+                $SlideEasing: $Jease$.$OutQuint,
+                $ArrowNavigatorOptions: {
+                  $Class: $JssorArrowNavigator$
+                },
+                $BulletNavigatorOptions: {
+                  $Class: $JssorBulletNavigator$
+                }
+              };
+
+              var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+              /*#region responsive code begin*/
+
+              var MAX_WIDTH = 2560;
+
+              function ScaleSlider() {
+                  var containerElement = jssor_1_slider.$Elmt.parentNode;
+                  var containerWidth = containerElement.clientWidth;
+
+                  //var containerWidth  = $('#slider1_container').parent().width();
+
+                  if (containerWidth) {
+
+                      var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+                      jssor_1_slider.$ScaleWidth(expectedWidth);
+                  }
+                  else {
+                      window.setTimeout(ScaleSlider, 30);
+                  }
+              }
+
+              ScaleSlider();
+
+              $(window).bind("load", ScaleSlider);
+              $(window).bind("resize", ScaleSlider);
+              $(window).bind("orientationchange", ScaleSlider);
+              /*#endregion responsive code end*/
+
+          }  });
+
+    </script> -->
+
+
+
+
+    <script type="text/javascript">
+
+          $(document).ready(function() {
+              /*$('.owl-carousel').owlCarousel({
+                  loop:true,
+                  autoplay: true,
+                  margin:10,
+                  dots: true,
+                  items: 1,
+                  autoplayTimeout: 15000
+              });*/
+
+              var _CaptionTransitions = [];
+              _CaptionTransitions["L"] = {$Duration:1000,x:0.2,$Easing:{$Left:$JssorEasing$.$EaseInOutSine},$Opacity:2};
+              _CaptionTransitions["R"] = { $Duration: 1000, x: -0.2, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+              _CaptionTransitions["T"] = { $Duration: 1000, y: 0.2, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+              _CaptionTransitions["B"] = { $Duration: 1000, y: -0.2, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+              _CaptionTransitions["TL"] = {$Duration:1000,x:0.2,y:0.2,$Easing:{$Left:$JssorEasing$.$EaseInOutSine,$Top:$JssorEasing$.$EaseInOutSine},$Opacity:2};
+              _CaptionTransitions["ZMF|10"] = { $Duration: 1000, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+              _CaptionTransitions["RTT|10"] = { $Duration: 1000, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+              _CaptionTransitions["RTT|2"] = { $Duration: 1000, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5} };
+              _CaptionTransitions["RTTL|BR"] = { $Duration: 1000, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+              _CaptionTransitions["CLIP|LR"] = { $Duration: 1000, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+              _CaptionTransitions["CLIP|TB"] = {$Duration:1000,$Clip:12,$Easing:{$Clip:$JssorEasing$.$EaseInOutCubic},$Opacity:2};
+              _CaptionTransitions["MCLIP|L"] = { $Duration: 1000, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+              _CaptionTransitions["MCLIP|R"] = { $Duration: 1000, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+              _CaptionTransitions['ZMF|2'] = {$Duration:1000,$Zoom:3,$Easing:{$Zoom:$JssorEasing$.$EaseInExpo,$Opacity:$JssorEasing$.$EaseLinear},$Opacity:2};
+              _CaptionTransitions['ZML|B'] = {$Duration:900,y:-0.6,$Zoom:11,$Easing:{$Top:$JssorEasing$.$EaseInCubic,$Zoom:$JssorEasing$.$EaseInCubic},$Opacity:2};
+              _CaptionTransitions['ZMF|C'] = {$Duration:500,$Zoom:3,$Easing:$JssorEasing$.$EaseLinear,$Opacity:2}
+              _CaptionTransitions['ZMF|C2'] = {$Duration:500,$Zoom:3,$Easing:$JssorEasing$.$EaseLinear,$Opacity:2}
+              _CaptionTransitions['ZML|T'] = {$Duration:500,$Zoom:3,$Easing:{$Top:$JssorEasing$.$EaseInCubic,$Zoom:$JssorEasing$.$EaseInCubic},$Opacity:2}
+              _CaptionTransitions['L-*IB'] = {$Duration:900,x:0.7,$Rotate:-0.5,$Easing:{$Left:$JssorEasing$.$EaseInCubic,$Opacity:$JssorEasing$.$EaseInQuad,$Rotate:$JssorEasing$.$EaseInBack},$Opacity:2,$During:{$Left:[0.2,0.8]}};
+              _CaptionTransitions['ALL*'] = {$Duration:2000,$Rotate:0.5,$Easing:{$Rotate:$JssorEasing$.$EaseLinear},$Opacity:2,$Round:{$Rotate:2}};
+              _CaptionTransitions['FZL'] = {$Duration:2000,x:-0.32,$Zoom:4,$Easing:{$Left:$JssorEasing$.$EaseLinear,$Zoom:$JssorEasing$.$EaseInQuad,$Opacity:$JssorEasing$.$EaseLinear},$Opacity:3,$During:{$Left:[0,0.33],$Zoom:[0,5],$Opacity:[0,2]}};
+              _CaptionTransitions['SSL'] = {$Duration:2000,x:-0.3,$Easing:$JssorEasing$.$EaseLinear,$During:{$Left:[0,0.33]}};
+              _CaptionTransitions['FADE'] = {$Duration:1200,$Delay:500,$Opacity:2};
+              _CaptionTransitions['FADE2'] = {$Duration:500,$Delay:500,$Opacity:2};
+
+
+              var options = {
+                  $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+                  $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                  $AutoPlayInterval: 3000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                  $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                  $ArrowKeyNavigation: true,                          //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                  //$SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+                  $SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                  $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                  //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                  //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                  $SlideSpacing: 0,                                   //[Optional] Space between each slide in pixels, default value is 0
+                  $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                  $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                  $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                  $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                  $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+                  $CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
+                      $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
+                      $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                      $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                      $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
+                  },
+
+                  $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                      $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                      $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                      $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                      $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                      $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                      $SpacingX: 8,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                      $SpacingY: 8,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                      $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                  },
+
+                  $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                      $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                      $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                      $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                      $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                  }
+              };
+
+              var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+              function ScaleSlider() {
+                  var bodyWidth = document.body.clientWidth;
+                  if (bodyWidth)
+                      jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+                  else
+                      window.setTimeout(ScaleSlider, 30);
+              }
+              ScaleSlider();
+
+              $(window).bind("load", ScaleSlider);
+              $(window).bind("resize", ScaleSlider);
+              $(window).bind("orientationchange", ScaleSlider);
+          });
+      </script>
+
+
+
+
+{% endblock %}

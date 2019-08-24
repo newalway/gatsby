@@ -1,0 +1,102 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | MOVIES {{ parent() }}{% endblock %}
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~  path('movies')}}">
+<meta property="og:image" content="{{app.request.getSchemeAndHttpHost() ~  asset('gatsby/original/img/og_common.png')}}" />
+<meta property="og:title" content="GATSBY | MOVIES">
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+{% endblock %}
+{% block products_active %}active{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/movie.css')}}">
+
+{% endblock %}
+
+{% block breadcrumb %}
+  <div id="breadcrumbs">
+    <ol class="content-inner">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+      <li>MOVIES</li>
+      {#}<li>{% if (categories|length > 0) %}{{categories[0].getTitle|upper}}{% endif %}</li>#}
+    </ol>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+{% block body_class %}page-template page-template-page page-template-movie-techniques page-template-pagemovie-techniques-php page page-id-130 page-child parent-pageid-15{% endblock %}
+{% block content %}
+<div class="content-wrapper movie">
+  <div class="content-inner">
+    <section class="section-block">
+      <div class="section-inner">
+        <h3 class="tit-vertical sticky"><p>MOVIES</p></h3>
+        <div class="section-content">
+
+        	<h4 class="tit-movie pdt">MOVIES</h4>
+          <div class="movie-section pb0 no-border">
+
+          							<div class="movie-inner">
+
+          	<ul class="movie-list">
+              {% if movies %}
+              {% for movie in movies %}
+              		<li id="movie-{{loop.index}}">
+                			<div class="movie">
+      		              <div class="movie-in">
+      		                <iframe src="https://www.youtube.com/embed/{{movie.videoId}}?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      		              </div>
+      		            </div><!-- .movie -->
+      		            <div class="text">
+      		            	<p>{{movie.getTitle}}</p>
+      		            </div>
+              		</li>
+              {% endfor %}
+              {% else %}
+                  <li>
+                    <div class="text">
+                  		 	<p>No Movies.</p>
+                  	</div>
+                  </li>
+              {% endif %}
+          	</ul>
+
+
+
+
+
+
+
+
+
+          	</div>
+          </div><!-- .movie-section -->
+
+
+        </div><!-- .section-content -->
+      </div><!-- .section-inner -->
+    </section><!-- .section-block -->
+
+  </div><!-- .content-inner -->
+</div><!-- .content-wrapper -->
+
+
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+
+
+{% endblock %}

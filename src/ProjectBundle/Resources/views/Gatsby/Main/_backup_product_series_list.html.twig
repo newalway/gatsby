@@ -1,0 +1,112 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | PRODUCTS {{ parent() }}{% endblock %}
+{% block products_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="container-fluid">
+  <ul class="breadcrumb">
+    <li><a href="{{path('homepage')}}">HOME</a></li>
+    <li><a href="{{path('products')}}">PRODUCT</a></li>
+    <li>
+      {% if (series|length > 0) %}
+      <a href="{{path('product_series', {'id':series[0].productCategory.id, 'slug':series[0].productCategory.getTitle|slug })}}">{{series[0].productCategory.getTitle|upper}}</a>
+      {% else %}ไม่พบหมวดหมู่นี้{% endif %}
+
+    </li>
+    <li>{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}</li>
+  </ul>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+  <script src="{{asset('gatsby/js/jssor.slider-27.5.0.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('gatsby/js/jquery.matchHeight-min.js')}}" type="text/javascript"></script>
+
+{% endblock %}
+
+{% block content %}
+<section id="product-series-list" class="product-series-list">
+  <div class="container-fluid">
+    {% if (series|length >0) %}
+          {% if (series[0].getImageBanner)  %}
+              <img width="100%"src="{{series[0].getImageBanner}}" alt="">
+          {% endif %}
+              <h1 class="text-center product-title">{{series[0].getTitle|upper}}</h1>
+              {% if (products|length >0) %}
+                  {% for product in products %}
+                      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                          <div class="panel panel-body match-height">
+                              <h4 class="text-center ">{{product.getTitle|nl2br}}</h4>
+                              <div class="image text-center">
+                                {% if (product.isNew == 1)%}
+                                    <img style="position:absolute;"width="50" src="{{asset('gatsby/images/new-icon.png')}}" >
+                                {% endif %}
+                                {% if (product.image|length >0 )%}
+                                    <img style="margin:15px auto 20px auto;"class="img-responsive"src="{{product.image|imagine_filter('img_h_250')}}" alt="">
+                                {% else %}
+                                    <img style="margin:0 auto;"class="img-responsive"src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_100')}}" >
+                                {% endif %}
+                              </div>
+                              <div class="product-description">
+                                  {{product.getDescription|raw}}
+                              </div>
+                          </div>
+                      </div>
+                  {% endfor %}
+              {% else %}
+                  <div class="panel panel-body text-center">
+                      ไม่มีสินค้าในซี่รี่
+                  </div>
+              {% endif %}
+    {% else %}
+        <div class="panel panel-body text-center">
+            ไม่พบซีรี่นี้
+        </div>
+    {% endif %}
+  </div>
+</section>
+<section class="product-series-list">
+  <div class="container-fluid">
+            <h2 class="text-center realted-head">DISCOVER ANOTHER PRODUCT | LIST PRODUCT</h2>
+      <div class="panel panel-body text-center">
+          <div class="container">
+                {% if (series_related|length >0) %}
+                {% for related in series_related %}
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <a class="related-link" href="{{path('product_series_list', {'id':related.id,'category':related.productCategory.getTitle|slug ,'series':related.getTitle|slug })}}">
+                            <div class="image text-center">
+                              {% if (related.image|length >0 )%}
+                                  <img style="margin:0px auto;"class="img-responsive" src="{{related.image|imagine_filter('img_h_150')}}" alt="">
+                              {% else %}
+                                  <img style="margin:0px auto;"class="img-responsive" src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_100')}}" >
+                              {% endif %}
+                            </div>
+                            <div class="product-description">
+                                <h4 class="text-center related-title">{{related.getTitle|nl2br}}</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+                {% endif %}
+          </div>
+      </div>
+  </div>
+
+
+</section>
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+  <script type="text/javascript">
+    $(function() {
+        $('.match-height').matchHeight();
+    });
+  </script>
+
+{% endblock %}

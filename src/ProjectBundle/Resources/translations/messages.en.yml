@@ -1,0 +1,713 @@
+project:
+    title_bar_name: 'GATSBY THAILAND'
+
+no.datas.found: 'No Datas Found!'
+error.name: 'Enter a full name.'
+error.firstname: 'Enter a first name.'
+error.lastname: 'Enter a last name.'
+error.address: 'Enter your address.'
+error.city: 'Enter the city.'
+error.state: 'Enter the state.'
+error.country: 'Select your country.'
+error.zip: 'Enter the postcode.'
+error.is.guest: 'Select your Login or Checkout as guest.'
+error.email: 'Please enter a valid email address in the form username@domain.com'
+error.email.wrong: 'The email address might be wrong.'
+error.password: 'Enter the password'
+error.message: 'Enter the message.'
+error.phone: 'Enter a phone number.'
+error.email.already: 'Email already in use.'
+error.mobile: 'Enter a mobile number'
+error.order.no: 'Enter the Order No.'
+error.bank: 'Select the bank for transfer.'
+error.money: 'Enter the transfer amount.'
+error.date: 'Enter the transfer date.'
+error.time: 'Enter the transfer time.'
+error.bank.form: 'Enter your bank account.'
+error.order.number: 'Invalid Order No.'
+error.expire.order: 'You do not make the list at specified times, please go back to make the new order.'
+error.files: 'The file must be less than 8MB in size. Please try again.'
+error.already.exists.email: 'The email is already used.'
+error.same.current.email: 'You are currently using this email.'
+error.tax.code: 'Enter the taxation number.'
+error.gender: 'Select your gender.'
+error.password.match: 'The password fields must match.'
+error.password.blank: 'Please enter a current password.'
+error.current.password.invalid: 'The entered password is invalid'
+error.select.product: 'Select the product.'
+error.select.payment: 'Please select payment method'
+error.order.number.search: 'Order number not found.'
+
+customer.registration: 'Register Complete!'
+regis.success.title: 'Create Account Success'
+regis.success.txt: 'Your account has been created. Click below to login for the first time.'
+regis.login: 'Log in'
+recent.news: 'Recent News'
+recent.health.tips: 'Recent Health Tips'
+quick.links: 'Quick Links'
+read.more: 'Read More'
+health.tips: 'Health Tips'
+gallery: 'Gallery'
+best.sale: 'Best Sale'
+best.price: 'Best Price'
+recommend: 'Recommend'
+new.arrival: 'New Arrival'
+featured: Featured
+popular: Popular
+new: 'New'
+sale: 'Sale'
+show.all: 'Show All'
+products: 'Products'
+our.client: 'Our Client'
+give.us.a.call: 'Give us a call'
+subscribe.us: 'Subscribe us for Offers & Health Tips'
+subscribe.now: 'Subscribe  Now'
+promotion.all: 'All'
+
+menu.login: 'Log In'
+menu.logout: 'Log Out'
+menu.register: 'Register'
+menu.signup: 'Sign Up'
+menu.account: "%fname% %lname% 's account"
+menu.reset_password: 'Reset password'
+menu.change_password: 'Change password'
+menu.home: 'Home'
+menu.about.us: 'About Us'
+menu.product: 'Products'
+menu.promotion: 'Promotion'
+menu.health.tips: 'Health Tips'
+menu.service: 'Service'
+menu.news: 'News'
+menu.showroom: 'Showroom'
+menu.contact.us: 'Contact Us'
+menu.how.to.buy: 'How to Buy'
+menu.shipping.delivery: 'Shipping & Delivery'
+menu.terms.conditions: 'Terms & Conditions'
+menu.privacy.policy: 'Privacy Policy'
+menu.marathon.online: 'Marathon Online'
+menu.service.customer: 'Service Customer'
+menu.follow.us: 'Follow Us'
+menu.track.my.order: 'Track My Order'
+menu.confirm.payment: 'Confirm Payment'
+
+member.title: 'Member'
+member.personal: 'Personal Information'
+member.personal.title: 'My Personal Information'
+member.personal.profile: 'Personal Profile'
+member.personal.email: 'Email'
+member.personal.current_email: 'Current Email Address'
+member.personal.new_email: 'New Email Address'
+member.personal.change: 'Change Email'
+member.personal.fullname: 'Full Name'
+member.personal.fname: 'First Name'
+member.personal.lname: 'Last Name'
+member.personal.company_name: 'Company Name'
+member.personal.gender: 'Gender'
+member.personal.male: 'Male'
+member.personal.female: 'Female'
+member.personal.birth_date: 'Date of Birth'
+member.personal.save: 'Save'
+member.personal.close: 'Close'
+member.personal.register: 'Register'
+member.personal.phone_number: 'Mobile Phone'
+member.personal.phone: 'Phone Number'
+member.password: 'Password'
+member.password.confirm: 'Repeat password'
+member.password.setpassword.description: 'To use Username login, you need to set a separate password and log in with the username provided.'
+member.password.setpassword.username: 'Your username is:'
+member.password.setpassword.submit: 'Send email to set password'
+member.change.personal.info: 'Change Personal Info'
+member.change.password: 'Change Password'
+member.address.book: 'Address Book'
+member.my.orders: 'My Orders'
+member.logout: 'Logout'
+member.default.shipping.address: 'Default Shipping Address'
+member.default.billing.address: 'Default Billing Address'
+member.recent.orders: 'Recent Orders'
+member.address: 'Address'
+member.new.address: 'Add New Address'
+member.postcode: 'Postcode'
+member.set_password: 'Set password'
+member.generate.token: 'Get Access Token'
+member.generate.token_description: 'Your access token expired. Please enter a password. To get a new access token'
+member.access.token: 'Access token'
+member.generate.token.button: 'Get Access Token'
+member.hello: 'Hello'
+member.district: 'District'
+member.province: 'Province'
+member.country: 'Country'
+member.taxpayerid: 'Tax ID'
+member.default.shipping: "Set Default Shipping Address"
+member.default.tax: "Set Default Tax Address"
+member.default.billing: "Set Default Billing Address"
+member.address.title: "Address Book Title"
+member.address.book.create: "Address Book New Create"
+member.address.book.edit: "Address Book Edit"
+member.button.save: "Save"
+member.button.update: "Update"
+member.button.close: "Close"
+member.country.thailand: 'Thailand'
+member.no.default.shipping.address: 'You not add shipping address.'
+member.no.default.billing.address: 'You not add billing address.'
+member.shipping.address: 'Ship to'
+member.billing.address: 'Bill to'
+member.billing.same_address: ' the same address'
+member.delivery.address: 'Delivery Address'
+member.address.book.new: 'Add new address'
+
+data.nodata: "No data"
+
+member:
+    social:
+        connections: 'Social Connections'
+        connect:
+            facebook: 'Connect with Facebook'
+            facebook_desc: 'Authenticate with your Facebook account'
+            google: 'Connect with Google'
+            google_desc: 'Authenticate with your Google account'
+
+payment.title: 'Confirm Payment'
+payment.orderno: 'Order number'
+payment.fname: 'Firstname'
+payment.lname: 'Lastname'
+payment.bank: 'Bank Name'
+payment.bank.acc_number: 'Account Number'
+payment.bank.acc_name: 'Account Name'
+payment.bank.acc_branch: 'Branch'
+payment.amount: 'Amout'
+payment.file: 'Bank Transfer / Pay-in Slip'
+payment.file.txt: ''
+payment.date: 'Transfer Date'
+payment.time: 'Transfer Time'
+payment.confirm.howto: 'How to Pay'
+payment.submit: 'send'
+payment.search: 'Find by order Number'
+payment.method.title: 'Payment Method'
+payment.method.bank.title: 'Direct Bank Transfer'
+payment.method.credit.title: 'Credit Card'
+payment.method.bank.description: 'Make your payment directly into our bank account. Please use your order Number as the payment reference. order won’t be shipped until the funds have cleared.'
+payment.method.credit.description: 'Order won’t be shipped until the funds have cleared.'
+
+
+
+contact.name: Name
+contact.email: Email
+contact.phone: Phone
+contact.message: Message
+contact.send: Send Message
+contact.send.thank: 'Thank you for your contact. Your message has been sent successfully.'
+contact.cannot.send: 'Cannot send email.'
+
+Sun: 'Sun'
+Mon: 'Mon'
+Tue: 'Tue'
+Wed: 'Wed'
+Thu: 'Thu'
+Fri: 'Fri'
+Sat: 'Sat'
+
+Sunday: 'Sunday'
+Monday: 'Monday'
+Tuesday: 'Tuesday'
+Wednesday: 'Wednesday'
+Thursday: 'Thursday'
+Friday: 'Friday'
+Saturday: 'Saturday'
+
+January: 'January'
+February: 'February'
+March: 'March'
+April: 'April'
+May: 'May'
+June: 'June'
+July: 'July'
+August: 'August'
+September: 'September'
+October: 'October'
+November: 'November'
+December: 'December'
+
+Jan: 'Jan'
+Feb: 'Feb'
+Mar: 'Mar'
+Apr: 'Apr'
+May: 'May'
+Jun: 'Jun'
+Jul: 'Jul'
+Aug: 'Aug'
+Sep: 'Sep'
+Oct: 'Oct'
+Nov: 'Nov'
+Dec: 'Dec'
+
+date.year: 'Year'
+date.month: 'Month'
+date.day: 'Day'
+
+showroom.tel: 'Tel'
+showroom.fax: 'Fax'
+showroom.mobile: 'Mobile'
+showroom.directions: 'Directions'
+
+order.txt: 'Order'
+order.placed.on: 'Placed on'
+order.items: 'Items'
+order.subtotal: 'Subtotal'
+order.total: 'Total'
+order.manage: 'Manage'
+order.qty: 'Qty'
+order.price: 'Price'
+order.processing: 'Processing'
+order.shipped: 'Shipped'
+order.delivered: 'Delivered'
+order.delivered.on: 'Delivered on'
+order.estimated.delivered.on: 'Estimated Delivery Date'
+order.none: 'No Order'
+
+track.my.order: 'Track My Order'
+track.pending.payment: 'Pending Payment'
+track.payment: 'Already Paid'
+track.ongoing: 'Payment Confirmation'
+track.sent.success: 'Delivered'
+
+login.title: 'Login'
+reset_password.title: 'Reset your password'
+change_password.title: 'Change password'
+_or_: 'or'
+
+Female: 'Female'
+Male: 'Male'
+edit: 'Edit'
+remove: 'Remove'
+confirm.delete: 'Are you sure you want to delete?'
+see.more: 'See More'
+view.more: 'View More'
+
+product.equipment: 'Equipment'
+product.brand: 'Brand'
+product.age_group: 'Age Group'
+product.sort_by: 'Sort By'
+product.popularity: 'Popularity'
+product.price_low_to_high: 'Price low to high'
+product.price_high_to_low: 'Price high to low'
+product.view: 'View'
+product.customer_group: 'Customer Group'
+product.power: 'Power'
+product.muscle_training: 'Muscle Training'
+product.price: 'Price'
+product.showrooms: 'Showrooms'
+product.description: 'Description'
+product.add_to_cart: 'Add to cart'
+product.buy_it_now: 'Buy it now'
+product.best_seller: 'Best Seller'
+product.title: 'Product'
+product.quantity: 'Quantity'
+product.volume: 'Volume'
+product.howtouse: "How to use"
+product.ingredient: "Ingredient list"
+product.related: "Related products"
+
+cart:
+    title: 'Cart'
+    totals: 'Cart Totals'
+    order_summary: 'Order Summary'
+    product: 'Product'
+    quantity: 'Quantity'
+    qty: 'Qty'
+    price: 'Price'
+    total: 'Total'
+    empty: 'Shopping Cart is Empty'
+    no_items_in_cart: 'You have no items in your shopping cart.'
+    checkout: 'Proceed to Checkout'
+    remove: 'Remove'
+    subtotal: 'Subtotal'
+    shipping_free: 'Shipping Fee'
+    free: 'Free'
+    #shipping_free: 'Shipping and Handling'
+    grand_total: 'Grand Total'
+    grand_total_vat_incl: 'Total (VAT Incl.)'
+    edit: 'Edit'
+    place_order: 'Order Confirmation'
+    shipping_address: 'Shipping Address'
+    billing_address: 'Billing Address'
+
+Bank Transfer: 'Bank Transfer'
+
+Paid: 'Paid'
+Unpaid: 'Unpaid'
+Awaiting payment: 'Awaiting payment'
+Pending: 'Pending'
+Processing: 'Processing'
+Shipped: 'Shipped'
+search: 'Search'
+
+checkout.title: 'Checkout'
+checkout.thank: 'Thank You!'
+checkout.succsess: 'place order was successfully'
+checkout.warning: 'Warning!'
+checkout.notsuccsess: 'No data payment or payment not successfully'
+payment.succsess: 'payment was successfully'
+
+acseine:
+    btn.to.top: "TO TOP"
+    language: 'Language'
+    menu:
+        top: 'TOP'
+        about: 'About ACSEINE'
+        product: 'Product series'
+        counseling: 'Counseling'
+        skincosmetics: 'Skin problems and cosmetics'
+        shoplist: 'Shop list'
+        company_profile: 'Conpany profile'
+        web_terms_of_use: 'Website terms of use'
+        privacy_policy: 'Privacy policy'
+        sitemap: 'Site map'
+        in_shop_counseling: 'In-shop counseling'
+        skin_problems_cosmetics: 'Skin problems and cosmetics'
+
+    breadcrumb:
+        top: 'TOP'
+        about: 'About ACSEINE'
+        product: 'Product series'
+        counseling: 'Counseling'
+        skincosmetics: 'Skin problems and cosmetics'
+        shoplist: 'List of ACSEINE shops in department stores'
+        company_profile: 'Conpany profile'
+        web_terms_of_use: 'Website terms of use'
+        privacy_policy: 'Privacy policy'
+        sitemap: 'Site map'
+        in_shop_counseling: 'In-shop counseling'
+        skin_problems_cosmetics: 'Skin problems and cosmetics'
+        history: "ACSEINE's history"
+        skin_allergy: 'Allergies'
+        skin_allergy_qa: 'Q&A for managing allergies'
+        skin_allergy_test: 'Patch test'
+        skin_atopic_dermatitis: 'Atopic dermatitis'
+        skin_atopic_dermatitis_qa: 'Q&A for managing atopic dermatitis'
+        skin_atopic_dermatitis_wash: "Face washing that's gentle on the skin"
+        adult_acne: "Adult acne"
+        adult_acne_advice: "Adult acne skin care & makeup advice"
+        uv_rays_and_dryness : "UV rays and dryness"
+
+    about:
+        title:          'About ACSEINE'
+        head:           "Hypoallergenic & highly functional<br>ACSEINE bases its view of beauty on the essence of skin physiology"
+        sub_head1:      'Cosmetics help women to look more beautiful. Living in the modern world, we take for granted that those cosmetics are safe.'
+        sub_head2:      "And yet, in the 1970s, allergies to cosmetic items had serious effects on many women's skin, sometimes causing the very act of wearing makeup to be viewed as dangerous.<br>
+                        ACSEINE got its start by teaming up with dermatologists to conduct joint research on theories aimed at avoiding a repeat of these kinds of cosmetic allergies."
+        paragraph1:     "The three letters \"A.C.S.\" are the essence of ACSEINE's origins.<br>
+                        They stand for \"Allergen Control System,\" which refers to an auxiliary therapeutic system established with the goal of seeking out allergy-causing allergens (substances that cause skin irritations), removing them from everyday life, and preventing the allergies' recurrence.<br>
+                        In 1973, ACSEINE teamed up with dermatologists and 9 companies to establish the ACS Research Society, which serves as its cosmetics division and continues to develop cosmetic items today."
+        paragraph2:     "In the 21st century, skin's environment is becoming increasingly harsh, and skin problems are becoming more complicated.<br>Against that backdrop, ACSEINE continues to preserve its own essence, namely A.C.S., while pursuing solutions based on the latest skin physiology. We work to develop hypoallergenic cosmetics that won't cause allergies and that deliver noticeable results, as we strive to help modern-day skin become more beautiful."
+        history_btn:    "ACSEINE's history"
+
+    counseling:
+        title: 'Counseling'
+        head: 'A fundamental part of ACSEINE is counseling'
+        paragraph1: 'It starts not with recommending cosmetics,<br>but with asking about your skin problems.'
+        paragraph2: "That is ACSEINE's basic approach."
+        paragraph3: 'Start by consulting a staff member about your skin.'
+        button_in_shop:  'In-shop counseling'
+        button_list_shop:  'List of ACSEINE shops <br>in department stores'
+
+    shoplist:
+        title: 'List of ACSEINE shops in department stores'
+        head: "At shops with dedicated ACSEINE staff,<br>be sure to ask for skin care advice"
+        paragraph1: "At ACSEINE in department stores,<br class=\"no-sp\"> staff members with specialized knowledge<br class=\"no-sp\"> about the skin carefully check your skin's condition and<br class=\"no-sp\"> give appropriate skin care advice, then recommend cosmetic items tailored to you.<br class=\"no-sp\">Our products can be tried using samples, so please don't hesitate to ask for one."
+        search_for_shop:  'Search for a shop'
+        closet_station: 'The closest station'
+        address: 'Address'
+
+    skin_problems:
+        title: 'Skin problems and cosmetics'
+        head: 'At shops with dedicated ACSEINE staff,<br>be sure to ask for skin care advice'
+        paragraph1: "When viewed from the perspective of skin physiology,<br>human skin is like an intricately built machine.<br>For every \"why\" question you face day to day,<br>there is invariably a clear answer.<br>We've rounded up some essential information for skin<br>with problems like allergies, atopy, adult acne, and pigmentation."
+        button_allergies: 'Allergies'
+        button_atopic: 'Atopic dermatitis'
+        button_adult: 'Adult acne'
+        button_uv: 'UV rays and dryness'
+
+    skin_allergy:
+        title: 'Skin problems and cosmetics Allergies'
+        head: 'Why do allergies occur?'
+        question1_title_main: 'What is an allergy?'
+        question2_title_main: 'Why do cosmetics irritate the skin?'
+        question3_title_main: 'What should I do if cosmetics irritate my skin?'
+        question4_title_main: 'To avoid causing a skin irritation, what should I be careful about?'
+        question5_title_main: 'For persons with metal allergies'
+        question1:
+            title: 'What will an allergy be?'
+            paragraph1: "When you suffer from hay fever in the spring, or when you break out in hives after eating a specific thing...<br> Those are types of allergies. An allergy is caused by a function known as an \"antigen-antibody reaction,\" in which the body tries to expel a foreign substance (an antigen or allergen). The immune response, something that is inherently essential for the body, goes into overdrive and acts in a detrimental way.
+                         <br> Allergies can be classified into types 1 through 4. In type 1 (immediate), symptoms appear in around 10 minutes, such as with hay fever, hives, bronchial asthma, and allergic rhinitis.<br> Meanwhile, in type 4 (delayed), a response appears after some time has passed, such as with allergic contact dermatitis (irritation)."
+        question2:
+            title: 'Why do cosmetics irritate the skin?'
+            paragraph1: "There are two main causes for cosmetic irritations, a typical form of contact dermatitis. These are \"irritants\" and \"allergies.\" "
+            head_paragraph2: "【Irritant contact dermatitis】"
+            paragraph2: "This dermatitis is caused by irritation (toxicity) from something that touches the skin. For example, alcohol, a strong acid, a strong alkaline, or friction will cause irritation in nearly everyone when it reaches a certain point."
+            paragraph3: "The irritation caused by such an irritant will vary depending on the skin's condition at the time.<br> For example, symptoms are considered more likely to appear when skin is unstable due to things like poor health or the season, when the skin's barrier function is diminished, or when the skin is cut or injured due to shaving or waxing, etc."
+            head_paragraph4: "【Allergic contact dermatitis】"
+            paragraph4: "Dermatitis occurs when antibodies in the body try to expel a foreign substance (allergen).<br> Only in people for whom that foreign substance triggers a rejection response, symptoms will appear even if the concentration or the amount is extremely small."
+            paragraph5: "An irritation caused by an allergen will occur regardless of the skin's condition at that time.<br> Even after the symptoms subside, once the person is exposed to the allergen again, they will repeat the same response."
+            paragraph6: "The symptoms are similar in both cases, including redness, itching, flushness, and swelling.<br> But it's hard to determine whether the cause is an irritant or an allergy, so we recommend consulting with a dermatologist."
+        question3:
+            title: 'What should I do if cosmetics irritate my skin?'
+            paragraph1: "Stop using the cosmetics and get the appropriate treatment from a dermatologist.<br> You can provide first-aid care such as removing the cosmetics you placed on the skin with mild soap, etc., or if there is flushness remove heat from the skin using a towel cooled with water, but amateur remedies often exacerbate the condition. It's best to visit a dermatologist and get appropriate care."
+            paragraph2: "When the medical staff takes your history, it is important to explain what symptoms appeared, when, and under what circumstances, providing as much detail as possible. Even if the symptoms subside, if you don't know the cause they may reappear.<br> You can investigate the cause by checking one by one what you had used when things got worse and what you had used when things were fine.<br> Also, some dermatology clinics use a method called \"\""
+            paragraph2_1: "patch tests"
+            paragraph2_2: "\"\" to investigate what substance caused the irritation."
+        question4:
+            title: 'To avoid causing a skin irritation, what should I be careful about?'
+            paragraph1: "Most importantly, avoid contact with allergens. When an allergen is identified, you can avert cosmetic irritation by avoiding that ingredient. Nowadays, all the ingredients are labeled on the containers or outside packaging of cosmetics,
+                         so you can check whether it contains anything that is an allergen for you.<br> The ingredient names are listed in several different ways, though, so for details please check with the manufacturer. (After April 2008, quasi-drug items     also began listing all ingredients under a voluntary standard of the Japan Cosmetic Industry Association (JCIA).)"
+            head_paragraph2: "【A simple test method you can do by yourself】"
+            paragraph2: "Even if you avoid allergens, sometimes when you actually use a cosmetic item, it may not agree with your skin. Here is a "
+            paragraph2_1: "test method"
+            paragraph2_2: "you can easily use in such a case."
+            head_paragraph3 : "【What things are likely to cause cosmetic irritations?】"
+            paragraph3: "Perfumes, dye, and base ingredients are often reported.<br> These substances are included not only in cosmetics, but also in foods, drugs, and clothing, for example, so please watch out for them in your daily life as well.<br> Perfumes, dye, lanolin alcohol (an emulsifier), the dye in hair dye (PPDA), metal"
+        question5:
+            title: "Metal allergies and cosmetics"
+            paragraph1: "Do you sometimes turn red or feel itchy when you sweat?<br> Sometimes the sweat itself is the culprit, but it may also be a result of metal that the sweat causes to melt and run.<br> Metal is not problematic in its usual state, but when it runs due to sweat and such, it is likely to cause trouble for those who are allergic to metal."
+            head_paragraph2: "【Causes of metal allergies】"
+            paragraph2: "The first metal that comes to mind that we wear on our bodies is that in accessories.<br> Because metal allergies are often caused by things like cobalt, nickel, and chrome that are contained in metals as impurities, it can be said that the lower the purity, such as with plated items, the more likely a metal item is to cause an allergic reaction.
+                        <br> Other things besides accessories are leather goods such as watch bands or bag handles. That is because when leather is tanned to give it a lustrous shine, a metal called chrome is used.<br> The filling used in dental treatments may also trigger a metal allergy."
+            head_paragraph3: "【Metal in cosmetics】"
+            paragraph3: "Though one would assume cosmetics and metal to be unrelated, actually there are tiny amounts of metals such as cobalt, nickel, and chrome contained as impurities inside the iron oxide that is used as a dye in makeup items and sunscreen, etc.
+                        <br>So if symptoms such as redness, itching, and irritation appear after applying makeup items or sunscreen, a metal allergy is one possibility to consider.<br> And if you already know that you have a metal allergy, use caution when choosing cosmetics."
+    skin_allergy_qa:
+        title: "About a skin trouble and an allergy to cosmetics"
+        head: "Q&A for managing allergies"
+        section1:
+            question: 'I feel irritated or itchy no matter what I use – could I have a cosmetic allergy?'
+            answer: "It is very rare for someone to be allergic to every single cosmetic product.<br> If you feel irritation from all the cosmetics you're using now, stop using them, including makeup.<br> If your symptoms do not subside even then, it is likely another reason besides cosmetics, so please consult a dermatologist."
+            also: "Regardless of whether cosmetics are behind your irritation, using cosmetics when you have redness or itching will result in a highly sensitive reaction. Even cosmetics that normally agree with your skin may provoke an exacerbation of symptoms.
+                    <br> The same thing may happen when excessive massaging or face washing causes skin's inherent barrier function to be destroyed.<br> To determine whether a cosmetic item agrees with your skin or not, the first thing to think about is  relieving the symptoms."
+        section2:
+            question: 'I have serious redness and itching. Is it from cosmetics? Or is it from atopy?'
+            answer: "Even when a skin irritation is triggered by cosmetics, the symptoms are similar to the exacerbation period(*) of atopic dermatitis, so in this case it may be both. In such a situation, it is important to stop using cosmetics and let the skin rest.<br> If symptoms improve right away, the cause is likely cosmetics. On the other hand, if the condition does not improve with time, it's possible that symptoms may worsen, so we recommend that you see a dermatologist."
+            also: "To supplement the treatment of atopic dermatitis, it is essential to engage in skin care that incorporates the notion that skin control = hygiene and moisturizing. But this is only during the remission period(*), when skin's condition is relatively stable.<br> When symptoms are exacerbated, even cosmetic items that normally don't cause any irritation may impose a burden on the skin.<br> Only use cosmetics after thoroughly consulting with a dermatologist.
+                    <br>*Exacerbation period ･･･ Period when atopic dermatitis worsens and symptoms such as itching and rashes are present.<br> *Remission period ･･･ Period when symptoms of atopic dermatitis subside and the skin is stable."
+        section3:
+            question: "I was told that I'm prone to skin irritation from perfumes in cosmetics.<br> My condition improved with treatment, but is it better for me not to use cosmetics anymore?"
+            answer: "Once you have an allergic reaction, that rejection response usually continues for life.<br> Even after symptoms subside, you should avoid using cosmetics containing the perfume that caused the allergy.<br> Even if your skin condition improved with treatment, when you are exposed to the allergen again, the same symptoms will recur, and your skin condition will suddenly worsen. But it's too hasty to think all cosmetic items are off limits."
+            also: "When it's clear what your allergen is, as long as you don't come into contact with that substance you can use cosmetics just like someone with healthy skin. For example, if perfumes trigger a skin irritation, you can use cosmetics that don't contain any perfumes at all.<br> In other words, it's important to have a firm grasp on what allergens cause your allergies and how to avoid them in your daily life.<br> You should be careful
+                    about this point not only in terms of cosmetics but in your daily life as well."
+        section4:
+            question: "Is it true that at times when you have allergy symptoms such as hay fever, you're more prone to cosmetic irritation?"
+            answer: "Yes. When hay fever or other allergy symptoms are present, the moisture level in the stratum corneum declines.<br> As a result, skin gets dry and the barrier function notably declines. You may respond more sensitively than usual to irritants.<br> At times like this, cosmetics that have not bothered you before may become irritants and trigger your allergies.<br> Trying a new cosmetic item for the first time is best done after hay fever symptoms have subsided.<br> After choosing a cosmetic item from the many products available, it would be a shame if it actually agreed with your skin just fine but you decided it didn't due to the effects of hay fever. To find the products that are best for you, choose a time when you're less prone to allergies to try new cosmetics."
+        author: "Source: \"Binkan hada no tame no arerugi dokuhon\"<br>(Allergy primer for sensitive skin) (Ed.: Hideo Nakayama, DMS)"
+
+    skin_allergy_test:
+        title: 'Skin problems and cosmetics Allergies'
+        head: 'Patch test'
+        head_paragraph1: "What is a patch test?"
+        paragraph1: "A patch test is a method for investigating what substance causes skin irritation.<br> The type of patch test performed most often at dermatology clinics is a method called the \"\"closed patch test.\"\"<br> First, the substance suspected of causing the irritation is applied to a flat part of the back, with a bandage placed over it, for two days.<br> During that time, wiping the body is fine, but bathing is not allowed.
+                    <br> Then the bandage is removed, and the reaction is observed 2 days, 3 days, and 1 week later.<br> While we tend to expect an immediate reaction if there is an allergen, it sometimes takes several days for the antigen-antibody reaction that triggers the allergy to establish itself inside the body.<br> That's why the reaction is checked three times over a longer period."
+        head_paragraph2: "Test method"
+        paragraph2: "The inner arm, where skin is soft, is a good place to get an accurate response to an allergen.<br> With clean hands, apply the cosmetic item (about the size of a 100 yen coin) on 3 places, as indicated in the illustration.<br> *When using things like face wash, soap, or shampoo, first lather it up with water, then apply it to the skin, leave on 1-2 minutes, and rinse.
+                    <br> Bathing is fine during this time. Just be sure not to rub hard with a cleanser, etc., on the inner arm where the cosmetic is applied. Wait and see for about 4 days, and if there is no problem, you can use it on the face."
+
+    skin_atopic_dermatitis:
+        title: 'Skin problems and cosmetics Atopic dermatitis'
+        head: 'How should I manage skin that has atopic dermatitis?'
+        question1_title_main: "Causes of atopic dermatitis"
+        question2_title_main: "Features of skin that has atopic dermatitis"
+        question3_title_main: "How to use cosmetics when you have atopic dermatitis"
+        question1:
+            title: "Causes of atopic dermatitis"
+            paragraph1: "Atopic dermatitis is a chronic form of dermatitis characterized primarily by hives with itching that improves and worsens repeatedly. Its onset is thought to be caused by a combination of things to which one is inherently allergic (atopic disposition) and a variety of exacerbating factors (external factors). The factors that trigger an onset or exacerbation of atopic dermatitis can be classified as below into physical factors and environmental factors."
+        question2:
+            title: "Features of skin that has atopic dermatitis"
+            paragraph1: "Skin tends to dry out easily (decline in moisture retention capacity).<br> Repeated dryness causes the barrier function to decline, allowing external substances and irritants to penetrate the skin easily.<br> Allergens and bacteria, etc. that could normally be blocked get in and trigger inflammation, leaving skin prone to itching. When the barrier function declines, moisture also evaporates easily,
+                        often leading to a vicious cycle of further dryness and increased itching.<br> Improving such a situation requires appropriate skin care as well as treatment."
+            head_paragraph2:  "【Seasonal changes in symptoms】"
+            paragraph2: "In some seasons, itching increases and the condition worsens.<br> For example, sweat in the summer and dry air in the winter are common triggers. When you're not feeling well, even hypoallergenic cosmetic items that agree with your skin and that you can normally use may lead to irritation.
+                        <br> In that case, we recommend that you stop using those cosmetic items and simply wash your face with lukewarm water. After washing your face, use a moisturizing agent such as petroleum jelly."
+        question3:
+            title: "How to use cosmetics when there is atopic dermatitis"
+            paragraph1: "\"Treatment is the first priority, but once symptoms improve after using medication, skin care can play a key role.<br> In the guidelines for treating atopic dermatitis, along with measures such as medication and searching for the cause, daily skin care (cleansing and moisturizing) is a mainstay of the treatment.\""
+
+    skin_atopic_dermatitis_qa:
+        title: "Skin problems and cosmetics Atopic dermatitis"
+        head: "Q&A for managing atopic dermatitis"
+        section1:
+            question: "What about makeup when symptoms are strong?"
+            answer: "When symptoms such as redness and itching are present, any cosmetics you use will likely irritate the skin, so it's basically best to not use cosmetics. After the appropriate treatment at a dermatological clinic, once the condition improves and
+                    you get the doctor's permission, you can resume caring for the skin with cosmetics.
+                    <br> (As minimal skin care, some doctors may direct you to wash your face with lukewarm water and to use a moisturizing agent such as petroleum jelly.)"
+        section2:
+            question: "Can I use medication and cosmetics at the same time?"
+            answer: "When it comes to medication, follow the directions of your dermatologist. As for makeup, we recommend that you start using it only after symptoms have subsided, and check how it goes. Consult your doctor thoroughly about whether it's OK to apply
+                    medication and cosmetics on top of each other or if it's better to apply different things on the affected area than on the rest of the face."
+        section3:
+            question: "What should I be careful about when trying or resuming a new cosmetic item?"
+            answer: "Be sure your skin is in good condition, and try one item at a time. If you try several items at once and trouble arises, you won't know which item exacerbated your condition.
+                    <br> So try one item at a time to find what products agree with your skin."
+        section4:
+            question: "How can I avoid exacerbating factors in daily life?"
+            head_answer: "【Be careful about what touches your skin, even besides cosmetics】"
+            answer: "Choose undergarments and stockings, etc. that are non-irritating and have a smooth texture. Sweaters made with animal hair, for example, tend to exacerbate atopic dermatitis, so be careful. Also some laundry detergents and the like can be irritants.
+                    Be sure to rinse thoroughly."
+            head_paragraph1: "【Be careful about a nutritional balance】"
+            paragraph1: "If your atopic dermatitis gets worse after eating a certain food, you shouldn't eat the offending food.<br> But the nutrients the body needs are also important for the skin's metabolism, so if you don't get enough of them, the condition may worsen.
+                        <br> It's best to be careful about a nutritional balance and avoid extreme dietary restrictions."
+            head_paragraph2: "【Keep your room clean】"
+            paragraph2: "Mites and house dust are also some of the environmental factors that exacerbate atopic dermatitis. Be careful to keep your home or room well-ventilated, clean indoors frequently, and avoid using cloth sofas or carpets over a straw mat floor,
+                        for example, as they are prone to mites."
+            head_paragraph3: "【Relieve stress regularly】"
+            paragraph3: "Mental stress is also often an exacerbating factor.<br> Make a point of engaging in moderate exercise and relaxing so as to avoid allowing stress to build up."
+
+    skin_atopic_dermatitis_wash:
+        title: "Skin problems and cosmetics Atopic dermatitis"
+        head: "Face washing that's gentle on the skin"
+        head_paragraph1: "【Lather well in the palm of your hand】"
+        paragraph1: "The face wash turns into a foam that envelops impurities and removes them.<br> When not lathered up enough, its cleansing ability declines.<br> The foam also serves as a cushion to protect the skin."
+        head_paragraph2: "【Do not rub hard】"
+        paragraph2: "The key is to envelop the face in foam using the palms of the hands, and wash gently.<br> The hands tend to gravitate toward the cheeks and wash them too much, so just rub lightly there."
+        head_paragraph3: "【Rinse with lukewarm water about 20 times(*)】"
+        paragraph3:     "If not rinsed enough, some surfactant agent will remain, giving skin's pH an alkaline tendency temporarily and leaving it vulnerable to irritants.<br> And too much rinsing will cause the moisture layer to be lost."
+
+    adult_acne:
+        title: "Skin problems and cosmeticsAdult acne"
+        head: "Why are more people suffering from adult acne?"
+        question1_title_main: "Why does acne form (causes of adult acne)?"
+        question2_title_main: "What should I do if I get acne?"
+        question3_title_main: "What can I do to avoid exacerbating acne?"
+        question4_title_main: "When I have acne, is it OK to use cosmetics?"
+        question1:
+            title: "Why does acne form?"
+            paragraph1: "There are actually a lot of different causes of adult acne. It occurs due to a combination of multiple factors.<br>And some of those causes may seem unusual. For example, we tend to think that acne-prone skin suffers from excessive sebum excretion,
+                        but actually one of the reasons for acne is a lack of moisture caused by dryness."
+        question2:
+            title: "What should I do if I get acne?"
+            paragraph1: "Acne is a type of skin disorder called \"\"acne vulgaris.\"\"<br> It's bothersome so many people try to pop or squeeze the pimples themselves, but this is completely out of the question.
+                        <br> Doing so introduces bacteria and exacerbates inflammation, sometimes leading to acne scars.<br>Before things reach that point, if the symptoms are bothering you, you should see a dermatologist. Also, being careful about your daily lifestyle and your skin care and makeup, etc. can improve    your skin's condition and prevent the exacerbation of acne."
+        question3:
+            title: "What can I do to avoid exacerbating acne?"
+            head_paragraph1: "【Managing stress】"
+            paragraph1: "Mental stress is one factor that triggers acne. It can also exacerbate symptoms. In your daily life, make it a point to sleep well, relax at bath time, enjoy hobbies, and otherwise manage stress in ways that work for you. In addition, appropriate skin care and makeup that don't impose a burden on the skin also help to reduce stress."
+            head_paragraph2: "【Improve sleep quality】"
+            paragraph2: "Lack of sleep is a major factor that disrupts the hormone balance. It causes a notable decline in skin's ability to recover, leaving it more prone to acne. It also has a significant impact on mental stress, so you should get plenty of sleep –
+                        about 8 hours is ideal. Skin reaches its peak recovery ability between 10 p.m. and 2 a.m., so you should make a point of going to bed early."
+            head_paragraph3: "【Be thorough about UV ray protection】"
+            paragraph3: "UV rays diminish the skin's barrier function and are another cause of acne. They further exacerbate inflammation and are a cause of the pigmentation in acne scars. To decrease the damage, you should protect the skin from UV rays as much as possible.
+                        However, oily sunscreen imposes a burden on acne, so we recommend non-comedogenic tested products with minimal amounts of oil.
+                        <br>Choose UV care products that impose the least possible burden on acne, and thoroughly protect the skin from UV rays."
+            head_paragraph4: "【Eat a balanced diet】"
+            paragraph4: "It is actually not well understood to what extent foods with a lot of fat or sugar cause acne.
+                        <br>But nutritional balance also serves as a source of vitality for the skin, so you should make a point of eating a balanced, regular diet.
+                        <br>And unreasonable dietary restrictions often end up causing stress, so use caution."
+            head_paragraph5: "【Be careful about irritants on the skin】"
+            paragraph5: "Keeping clean the things that touch your skin, such as foundation puffs, pillowcases, futon covers, etc., is another way to prevent acne.
+                        <br>A habit of mindlessly touching or popping pimples when you're tense also exacerbates acne.
+                        <br> Check whether your everyday actions or personal belongings may be causing your acne to get worse."
+        question4:
+            title: "When I have acne, is it OK to use cosmetics?"
+            paragraph1: "When symptoms are severe, after consulting with a dermatologist, you should abstain from using cosmetics.
+                        <br>However, appropriate skin care and makeup can also help to prevent acne and reduce stress.
+                        <br>When the condition has subsided, choose cosmetic items that don't impose a burden on acne and resume skin care and makeup."
+
+    adult_acne_advice:
+        title: "Skin problems and cosmetics Adult acne"
+        head: "Adult acne skin care & makeup advice"
+        head2: "Skin care & makeup advice"
+        head_paragraph1: "【Cleansing and face wash are keys to acne care】"
+        paragraph1: "It's important to thoroughly remove impurities, but rubbing too hard can actually irritate the skin, so caution is required.<br> Excessive rubbing provokes dryness and tends to cause a decline in the barrier function."
+        head_paragraph2: "【Moisturizing is important for acne skin care too】"
+        paragraph2: "When someone has acne, we tend to think that their skin is oily and therefore suffers from excessive sebum excretion. But for people suffering from adult acne in their 20s and 30s, there is a considerable lack of moisture in the skin's stratum corneum. So moisturizing is an important step.<br> Choose items that don't leave a sticky feeling on the skin's surface, and try to enhance the moisture retention capability inside the skin."
+        head_paragraph3: "【If it's \"for acne-prone skin,\" is it safe?】"
+        paragraph3: "Applying several different types of lotions and serums in hopes that they will work on acne usually has the opposite effect.<br>In a condition in which the barrier function is diminished, they end up being irritants or burdens on the skin.<br>It's a good idea to take another look at what cosmetic items you're using to care for your skin."
+        head_paragraph4: "【Even when you have acne, you can wear makeup】"
+        paragraph4: "It has been said for years that makeup blocks the pores and exacerbates acne.<br>But nowadays there are more and more cosmetics that don't impose a burden on skin with acne, making it possible to choose from a variety of types. Even in medical settings such as dermatological clinics, cosmetics are not forbidden across the board. Instead, in conjunction with appropriate treatment, makeup is becoming acceptable to use as long as you're careful about the way you use it.
+                    <br>It  has come to be understood that using makeup actually improves quality of life (QOL) without exacerbating acne."
+        head_paragraph5: "【Makeup points when bothersome acne is present】"
+        paragraph5: "There is only limited time in the day that can be spent on makeup. Particularly on bothersome acne days, how about spending the time you would have spent on base makeup on point makeup instead? Makeup that draws attention away from acne can give you a beauty boost!"
+        paragraph6: "Rather than liquid foundation, which tends to irritate acne, we recommend powder foundation you can apply with a light touch. Choose something that matches your skin tone. First, cover the acne spots with a control color to correct redness, and then lightly apply foundation."
+        paragraph7: "The effects of point makeup such as eye makeup, eyebrow color, lipstick, and blush can create a makeup finish that draws attention away from acne. Without imposing a burden on acne, get a 3-dimensional, radiant look and a beauty boost!"
+
+    uv_rays_and_dryness:
+        title: "Skin problems and cosmetics UV rays and dryness"
+        head: "UV rays and dryness, triggers of skin problems"
+        question1_title_main: "These problems are also caused by UV rays and dryness."
+        question2_title_main: "Why is it necessary to block UV rays?"
+        question3_title_main: "Why is it necessary to prevent dryness?"
+        question1:
+            title: "These problems are also caused in part by UV rays and dryness."
+            head_paragraph1: "【Pigmentation (dark spots and dullness)】"
+            paragraph1: "The main cause is that inflammation caused by ultraviolet (UV) rays causes melanin pigment to be produced in excess. When skin is dry and has a diminished barrier function, its metabolism is sluggish, which causes a backlog of dead skin cells containing melanin pigment to build up. This results in pigmentation on the skin."
+            head_paragraph2: "【Rough skin】"
+            paragraph2: "When skin is repeatedly exposed to stimulation from UV rays, the stratum corneum gets thicker. The inside of the skin becomes filled with gaps, and moisture evaporates. The fine lines on the skin's surface become disorderly, and skin's condition becomes rough, with symptoms such as toughness, grittiness, and peeling."
+            head_paragraph3: "【Acne】"
+            paragraph3: "As dryness progresses, dead skin cells get thicker, and clogged hair follicles called comedos form. Another cause of acne is when sebum oxidizes upon exposure to UV rays and proceeds to irritate pores. Also, with more exposure to UV rays, acne inflammation progresses and symptoms are exacerbated."
+            head_paragraph4: "【Exacerbation of symptoms (atopic dermatitis, allergies, etc.)】"
+            paragraph4: "Skin that suffers from atopic dermatitis tends to dry out easily and have a weak barrier function. When you add irritation from UV rays, which foster inflammation, the symptoms tend to get even worse. The same can be said for cases where allergies lead to a skin irritation"
+            head_paragraph5: "【Wrinkles, sagging】"
+            paragraph5: "Age-related problems such as wrinkles and sagging also have a lot to do with UV rays and dryness. Tiny wrinkles on the skin's surface are caused by a lack of moisture in the epidermis. Also, long-wavelength UV rays (UV-A) reach all the way to the dermis, breaking down the collagen and elastin that keep skin firm and causing deep wrinkles and sagging."
+        question2:
+            title: "Why is it necessary to block UV rays?"
+            head_paragraph1: "1. UV rays make the barrier function decline"
+            paragraph1: "With repeated UV ray exposure, even in small amounts, in order to prevent penetration into the skin's interior and protect the skin, a backlog of dead skin cells builds up on the skin's surface, causing the skin to thicken. Meanwhile, the barrier function declines, making it easy for moisture inside the skin to evaporate and leading to further dryness."
+            head_paragraph2: "2. UV rays promote dryness and inflammation"
+            paragraph2: "Skin with a diminished barrier function is very vulnerable and prone to irritants.<br>UV rays are able to penetrate the skin's interior with ease, causing dryness to progress further and provoking inflammation. This triggers melanin pigment to be produced in excess, causing pigmentation to occur on the skin's surface."
+        question3:
+            title: "Why is it necessary to prevent dryness?"
+            head_paragraph1: "1. The key to the barrier function is moisture"
+            paragraph1: "The skin's barrier function is composed of sebum film, formed by sweat and sebum on the skin's surface, together with the stratum corneum, which stores up moisture inside the skin.<br>These two layers are what protect the skin's interior from irritants. But when the skin lacks moisture, this function tends to instantly diminish. So moisture not only makes the skin dewy and soft, but it's also essential for repelling irritants."
+            head_list1: "【Healthy skin】"
+            text_list1_1: "The stratum corneum is well hydrated, and cells are lined up with no gaps <br>between them."
+            text_list1_2: "A sebum film is effectively protecting the skin's surface."
+            text_list1_3: "Skin is soft and smooth. Fine lines are neat and orderly."
+            head_paragraph2: "2．Skin that lacks moisture is sensitive"
+            paragraph2: "Sensitive skin has only small amounts of sebum and sweat, and the stratum corneum's NMF (natural moisturizing factor) and intercellular lipids also run a bit low.<br>Basically, the skin's surface is not properly protected, and the stratum corneum is short on moisture and filled with gaps, which leaves the inside of the skin vulnerable to irritants."
+            head_list2: "【Sensitive skin】"
+            text_list2_1: "A vicious cycle is repeated, in which: Intercellular lipids and NMF are lacking → <br>Moisture evaporates → The stratum corneum is filled with gaps → Irritants get in."
+            text_list2_2: "The sebum film doesn't function adequately."
+            text_list2_3: "Fine lines are disorderly, and skin is hard. Toughness, powderiness, and peeling <br>become noticeable."
+
+    product:
+        series:
+            title: "Product series"
+            paragraph1: "ACSEINE's products are hypoallergenic, perfume-free, and highly moisturizing."
+            paragraph2: "To make skin beautiful, without frequent breakouts – that is ACSEINE's guiding principle."
+            paragraph3: "A fundamental part of beauty is using products that agree with your skin.<br> ACSEINE offers an array of products tailored to skin concerns."
+
+
+    company_profile:
+        title: 'Conpany profile'
+        company_name_title: 'Company name'
+        representative_title: 'Representative'
+        business_description_title: 'Business description'
+        established_title: 'Established'
+        head_office_title: 'Head office'
+        company_name_data: 'PITH Beauty Pro Co., Ltd.'
+        representative_data: 'President Hiromasa  Sakamoto'
+        business_description_data: 'Development, manufacturing, and sale of cosmetics for modern-day skin problems such as adult atopic dermatitis and adult acne'
+        established_data: '1984'
+        head_office_data: 'Exchange Tower 38F, Unit 3801, 388 Sukhumvit Road,<br> Klongtoey, Bangkok 10110 <br>TEL 098-260-6906'
+
+    in_shop_counseling:
+        title: 'In-shop counseling'
+        head: "If you're concerned about your skin's condition, visit ACSEINE"
+        paragraph1: 'At ACSEINE shops in department stores, <br class="no-sp">our staff offers specialized counseling based <br class="no-sp">on a knowledge of skin physiology.'
+        step1_paragraph1: "After hearing your concerns, a staff member will perform both a visual and tactile check of your skin condition. They will then use a microscope to magnify your skin's surface x 50 in order to check the skin more closely.
+                          <br>They can check details of your skin's condition, such as the condition of fine lines and pigmentation, that can't be determined just by looking at it or touching it."
+        step2_paragraph1: "What can you do to keep your skin in a healthy condition?<br>A staff member will offer advice based on skin physiology.<br>They will present a plan for total care tailored to your individual skin."
+        step3_paragraph1: "ACSEINE has a wide array of foundation and makeup products that carefully coat each and every dye that is a potential allergen.<br>Moreover, we also provide makeup advice for skin that suffers frequent breakouts. We also offer makeup service for those who want it."
+        step4_paragraph1: "All of ACSEINE's cosmetics are hypoallergenic, but some people may feel unsure without actually trying the products for a few days to know whether they truly agree with their skin or not. We let you try a sample first and make sure it agrees with your skin."
+
+    sitemap:
+        title: 'Site map'
+        titlemenu:
+            home: 'HOME'
+            about: 'About ACSEINE'
+            product: 'Product series'
+            counseling: 'Counseling'
+            skin_problem: 'Skin problems and cosmetics'
+            shop: 'Shop list'
+            company_profile: 'Company profile'
+            terms_of_use: 'Website terms of use'
+            privacy: 'Privacy policy'
+            allergies: 'Allergies'
+            atopic_dermatitis: 'Atopic dermatitis'
+            adult_acne: 'Adult acne'
+            uv_rays_and_dryness: 'UV rays and dryness'

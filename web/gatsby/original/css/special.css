@@ -1,0 +1,82 @@
+/***********************************************************************
+preset
+**********************************************************************/
+/* dressing-pomade-block
+ ========================================================================== */
+.section-content {
+  padding: 3.74251% 3.74251% 0; }
+
+.section-block {
+  border-top: none; }
+
+.dressing-pomade-inner {
+  border: 0;
+  padding: 0 2.62009%; }
+  .dressing-pomade-inner ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 50px; }
+    .dressing-pomade-inner ul li {
+      width: 30.36649%;
+      margin-right: 4.363%;
+      text-align: center;
+      margin-top: 30px; }
+      .dressing-pomade-inner ul li a {
+        display: inline-block;
+        width: 100%; }
+      .dressing-pomade-inner ul li img {
+        width: 100%;
+        height: auto; }
+      .dressing-pomade-inner ul li p {
+        font-size: 13px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 20px; }
+    .dressing-pomade-inner ul li:nth-child(3n) {
+      margin-right: 0; }
+    .dressing-pomade-inner ul li:nth-child(-n+3) {
+      margin-top: 0; }
+  .dressing-pomade-inner dl {
+    margin-bottom: -10px; }
+
+.section-block .section-inner .section-content {
+  padding-top: 50px; }
+
+@media all and (max-width: 1024px) {
+  .section-content {
+    padding: 0 4.88281%; }
+
+  .sitemap-inner {
+    padding: 0; } }
+@media all and (max-width: 768px) {
+  .section-content {
+    padding: 8% 8% 0 12%; }
+
+  .dressing-pomade-inner {
+    padding: 0; }
+    .dressing-pomade-inner ul {
+      width: 100%;
+      box-sizing: border-box; }
+      .dressing-pomade-inner ul li {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 20px; }
+        .dressing-pomade-inner ul li a {
+          display: inline-block;
+          width: 100%; }
+        .dressing-pomade-inner ul li img {
+          width: 100%;
+          height: auto; }
+        .dressing-pomade-inner ul li p {
+          font-size: 12px;
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-top: 10px; }
+      .dressing-pomade-inner ul li:nth-child(3n) {
+        margin-right: 0; }
+      .dressing-pomade-inner ul li:nth-child(-n+3) {
+        margin-top: 20px; }
+      .dressing-pomade-inner ul li:first-child {
+        margin-top: 0; } }

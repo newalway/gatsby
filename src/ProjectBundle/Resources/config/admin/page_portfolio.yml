@@ -1,0 +1,12 @@
+admin_page_portfolio:
+  path:  /
+  defaults: { _controller: ProjectBundle:AdminPagePortfolio:index }
+  requirements:
+    _method: get
+
+admin_page_portfolio_update:
+  path: /update
+  defaults: {_controller: ProjectBundle:AdminPagePortfolio:update}
+  requirements:
+    _method: post
+    id: \d+

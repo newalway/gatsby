@@ -1,0 +1,113 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | SITEMAP {{ parent() }}{% endblock %}
+
+
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~  path('sitemap')}}">
+<meta property="og:image" content="{{app.request.getSchemeAndHttpHost() ~ asset('gatsby/original/img/og_common.png')}}" />
+<meta property="og:title" content="GATSBY | SITEMAP">
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+{% endblock %}
+
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+
+
+{% block breadcrumb %}
+  <div id="breadcrumbs">
+    <ol class="content-inner">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+	  <li>SITEMAP</li>
+    </ol>
+  </div>
+{% endblock %}
+{% block body_class %}page-template page-template-page page-template-sitemap page-template-pagesitemap-php page page-id-19{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/sitemap.css')}}">
+
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+	<div class="content-wrapper">
+	  <div class="content-inner">
+	    <section class="section-block">
+	      <div class="section-inner">
+	        <h3 class="tit-vertical sticky"><p>SITEMAP</p></h3>
+	        <div class="section-content">
+	          <div class="sitemap-inner">
+	            <ul class="tree-list first">
+	              <li>
+	                <a href="../index.html">TOP</a>
+
+	                <!-- 第2階層 start -->
+	                <ul class="tree-list second">
+						{% if (categories|length >0) %}
+							<li>
+								<a href="{{path('homepage')}}">PRODUCTS</a>
+
+						<!-- 第3階層 start -->
+								<ul class="tree-list third">
+									{% for cat in categories %}
+										<li>
+											<a href="{{path('product_series', {'id':cat.id, 'slug':cat.getTitle|slug })}}">{{cat.getTitle}}</a>
+										<!-- 第4階層 start -->
+											<ul class="tree-list fourth">
+												{% for serie in cat.series %}
+													<li>
+														<a href="{{path('product_series_list', {'id':serie.id,'category':serie.productCategory.getTitle|slug ,'series':serie.getTitle|slug })}}">
+															<div class="item">
+																{% if serie.image|length >0 %}
+																	  <img src="{{serie.image}}" alt="{{serie.getTitle}}">
+																{% else %}
+																	<img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_50')}}" alt="{{serie.getTitle}}">
+																{% endif %}
+															</div>
+															<div class="text">{{serie.getTitle}}</div>
+														</a>
+													</li>
+												{% endfor %}
+											</ul>
+										<!-- 第4階層 end -->
+										</li>
+									{% endfor %}
+								</ul>
+						<!-- 第3階層 end -->
+							</li>
+						{% endif %}
+	                  <li>
+	                    <a href="{{path('movies')}}">MOVIES</a>
+	                  </li>
+	                  <li>
+	                    <a href="{{path('styling')}}">STYLING</a>
+	                  </li>
+	                  <li>
+	                    <a href="{{path('contact')}}">CONTACT US</a>
+	                  </li>
+	                  <li>
+	                    <a href="{{path('sitemap')}}">SITEMAP</a>
+	                  </li>
+	                </ul>
+	                <!-- 第2階層 end -->
+	              </li>
+	            </ul>
+	          </div><!-- .sitemap-inner -->
+	        </div><!-- .section-content -->
+	      </div><!-- .section-inner -->
+	    </section>
+	  </div><!-- .content-inner -->
+	</div><!-- .content-wrapper -->
+{% endblock %}

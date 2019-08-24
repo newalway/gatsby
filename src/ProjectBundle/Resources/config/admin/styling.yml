@@ -1,0 +1,58 @@
+admin_styling:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminStyling:index}
+  requirements:
+    _method: get
+
+admin_styling_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminStyling:new}
+
+admin_styling_create:
+  path: /create
+  defaults: {_controller: ProjectBundle:AdminStyling:create}
+  requirements:
+    _method: post
+
+admin_styling_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminStyling:edit}
+  requirements:
+    id: \d+
+
+admin_styling_update:
+  path: /{id}
+  defaults: {_controller: ProjectBundle:AdminStyling:update}
+  requirements:
+    _method: post
+    id: \d+
+
+admin_styling_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminStyling:delete}
+  requirements:
+    _method: get
+
+admin_styling_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminStyling:group_delete}
+  requirements:
+    _method: post
+
+admin_styling_group_enable:
+  path: /group-enable
+  defaults: {_controller: ProjectBundle:AdminStyling:group_enable}
+  requirements:
+    _method: post
+
+admin_styling_group_disable:
+  path: /group-disable
+  defaults: {_controller: ProjectBundle:AdminStyling:group_disable}
+  requirements:
+    _method: post
+
+admin_styling_list_series_by_category:
+  path: /get-series-by-category
+  defaults: {_controller: ProjectBundle:AdminStyling:listSeriesOfCategory}
+  requirements:
+    _method: get

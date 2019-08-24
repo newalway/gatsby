@@ -1,0 +1,35 @@
+
+{% if (categories|length >0) %}
+    {% for cat in categories %}
+        <div class="sereis">
+            <div class="title">
+                <p>
+                    <a href="#">{{cat.getTitle}}</a>
+                </p>
+            </div>
+            {% if (cat.series|length >0) %}
+                <div class="num">{{cat.series|length}} items</div>
+                <ul>
+                    {% for serie in cat.series %}
+                        <li>
+                            <a href="{{path('product_series_list', {'id':serie.id,'category':serie.productCategory.getTitle|slug ,'series':serie.getTitle|slug })}}">
+                                <div class="item">
+                                    {#<img src="{{asset('gatsby/original/img/dressingpomade-200x200.png')}}" alt=""/>#}
+                                    {#<img src="{{asset('gatsby/images/no-image.png')|imagine_filter('menu_100x100')}}" >#}
+                                      {% if serie.image|length >0 %}
+                                            <img src="{{serie.image}}" alt="{{serie.getTitle}}">
+                                      {% else %}
+                                          <img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_50')}}"  alt="{{serie.getTitle}}">
+                                      {% endif %}
+                                </div>
+                                <div class="name">
+                                    <p class="en" data-chaffle="en">{{serie.getTitle}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor  %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endfor  %}
+{% endif %}

@@ -1,0 +1,12 @@
+admin_page_terms_conditions:
+  path:  /
+  defaults: { _controller: ProjectBundle:AdminPageTermsConditions:index }
+  requirements:
+    _method: get
+
+admin_page_terms_conditions_update:
+  path: /update
+  defaults: {_controller: ProjectBundle:AdminPageTermsConditions:update}
+  requirements:
+    _method: post
+    id: \d+

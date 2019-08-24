@@ -1,0 +1,90 @@
+<div class="mobile-menu hidden-sm hidden-md hidden-lg ">
+  <div  class="row container-fluid main-menu-2">
+      <div id="navbar3" class="menu-3 navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>PRODUCT LINEUP</span><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li class="dropdown-submenu">
+                   <a href="#" class="test" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"><span>NEW PRODUCT</span>&nbsp;<span class="caret"></span></a>
+                   <ul class="dropdown-menu dropdown-submenu2" role="menu">
+                  {% if (new_products|length >0) %}
+
+                                    {% for series in new_products %}
+                                        <li class="">
+                                            <a href="{{path('product_series_list', {'id':series.id,'category':series.productCategory.getTitle|slug ,'series':series.getTitle|slug })}}">
+                                                <div class="dropdown-submenu-internal box-ribbon">
+                                                    <div class="new-products-label-mobile">
+                                                      {% if series.image|length >0 %}
+                                                    <img width="50" src="{{asset('gatsby/images/new-icon.png')}}" ></div>
+                                                    <img style="margin: 3px auto auto 10px;" src="{{series.image|imagine_filter('img_h_50')}}" alt="">
+                                                    {% else %}
+                                                    <img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_50')}}" >
+                                                    {% endif %}
+                                                    &nbsp;{{series.getTitle}}
+                                                    <!-- &nbsp;<span class="label label-danger">New !</span> -->
+                                                </div>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+
+                  {% else %}
+                          <li class="dropdown-submenu-internal"><a href="#">ไม่มีสินค้าในหมวดหมู่นี้</a></li>
+                  {% endif %}
+                  </ul>
+              </li>
+              {% if (categories|length >0) %}
+                  {% for cat in categories %}
+                      <li class="dropdown-submenu">
+                          <a href="#" class="test" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"><span>{{cat.getTitle}}</span>&nbsp;<span class="caret"></span></a>
+                          <ul class="dropdown-menu dropdown-submenu2">
+                              {% if (cat.series|length >0) %}
+                                  {% for series in cat.series %}
+                                      <li class="">
+                                          <a href="{{path('product_series_list', {'id':series.id,'category':series.productCategory.getTitle|slug ,'series':series.getTitle|slug })}}" >
+                                              <div class="dropdown-submenu-internal">
+                                                {% if series.image|length >0 %}
+                                                  <img style="margin: 3px auto auto 10px;"src="{{series.image|imagine_filter('img_h_50')}}" alt="">
+                                                {% else %}
+                                                  <img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_50')}}" >
+                                                {% endif %}
+                                                &nbsp;{{series.getTitle}}
+                                              </div>
+                                          </a>
+                                      </li>
+                                  {% endfor %}
+                              {% else %}
+                                      <li class="dropdown-submenu-internal"><a href="#">ไม่มีสินค้าในหมวดหมู่นี้</a></li>
+                              {% endif %}
+                          </ul>
+                      </li>
+                  {% endfor %}
+              {% endif %}
+
+            </ul>
+          </li>
+          <!-- <li ><a href="#"><span>STYLE GUIDE</span></a></li> -->
+          <li ><a href="#"><span>CONTACT US</span></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> <span>GLOBAL</span> <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="http://www.gatsbythailand.com" target="_blank">{{"thailand"|upper}}</a></li>
+                <li><a href="http://www.gatsbyglobal.com/usa/" target="_blank">{{"usa"|upper}}</a></li>
+                <li><a href="http://www.gatsby.cn/" target="_blank">{{"china"|upper}}</a></li>
+                <li><a href="http://www.gatsby.hk/" target="_blank">{{"hong kong"|upper}}</a></li>
+                <li><a href="http://gatsbyindia.co.in/" target="_blank">{{"india"|upper}}</a></li>
+                <li><a href="http://www.gatsby.co.id/" target="_blank">{{"indonesia"|upper}}</a></li>
+                <li><a href="http://www.gatsby.jp/" target="_blank">{{"japan"|upper}}</a></li>
+                <li><a href="http://www.gatsby.kr/" target="_blank">{{"korea"|upper}}</a></li>
+                <li><a href="http://gatsby.com.my/" target="_blank">{{"malaysia"|upper}}</a></li>
+                <li><a href="http://www.gatsby.sg/" target="_blank">{{"singapore"|upper}}</a></li>
+                <li><a href="http://www.gatsby.com.tw/" target="_blank">{{"taiwan"|upper}}</a></li>
+                <li><a href="http://www.gatsby.ph/" target="_blank">{{"philippines"|upper}}</a></li>
+                <li><a href="https://www.gatsbyglobal.com/uk/" target="_blank">{{"UK"|upper}}</a></li>
+                <li><a href="https://www.gatsbyglobal.com/ca/" target="_blank">{{"canada"|upper}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  </div><!--/ .main-menu-2  -->
+</div><!--/ .mobile-menu -->

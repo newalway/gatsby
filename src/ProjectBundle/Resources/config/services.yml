@@ -1,0 +1,110 @@
+services:
+#    project.example:
+#        class: ProjectBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    utilities:
+          class: ProjectBundle\Utils\Utilities
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'
+
+    collections:
+          class: ProjectBundle\Utils\Collections
+          public: true
+          arguments:
+              - '@kernel'
+              - '@mailer'
+              - '@router'
+
+    app.product:
+          class: ProjectBundle\Utils\Products
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'
+
+    app.form.admin_user:
+         class: ProjectBundle\Form\Type\AdminUserType
+         public: true
+         arguments: ["@security.token_storage"]
+         tags: [form.type]
+
+    app.form.admin_product:
+         class: ProjectBundle\Form\Type\AdminProductType
+         arguments: ["@request_stack"]
+         tags: [form.type]
+
+    app.form.admin_product_technique:
+         class: ProjectBundle\Form\Type\AdminProductTechNiqueType
+         arguments: ["@request_stack"]
+         tags: [form.type]
+
+    project.password_resetting:
+        class: ProjectBundle\EventListener\PasswordResettingListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    exportexcel:
+          class: ProjectBundle\Utils\ExportExcel
+          #arguments: ['@phpexcel']
+          arguments:
+              - '@kernel'
+              - '@translator'
+          public: true
+
+    app.the_service:
+        class: ProjectBundle\Form\Type\AdminBannerType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags: [form.type]
+
+    app.form.admin_styling:
+         class: ProjectBundle\Form\Type\AdminStylingType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+             - '@doctrine.orm.entity_manager'
+         tags: [form.type]
+
+    app.form.admin_search_styling:
+         class: ProjectBundle\Form\Type\AdminSearchStylingType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+             - '@doctrine.orm.entity_manager'
+         tags: [form.type]
+
+    app.form.admin_movie:
+         class: ProjectBundle\Form\Type\AdminMovieType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+         tags: [form.type]
+
+    app.form.admin_search_movie:
+         class: ProjectBundle\Form\Type\AdminSearchMovieType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+         tags: [form.type]
+
+    app.form.admin_search_category:
+         class: ProjectBundle\Form\Type\AdminSearchCategoryType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+         tags: [form.type]
+
+    app.form.admin_search_product:
+         class: ProjectBundle\Form\Type\AdminSearchProductType
+         arguments:
+             - '@kernel'
+             - '@request_stack'
+             - '@doctrine.orm.entity_manager'
+         tags: [form.type]

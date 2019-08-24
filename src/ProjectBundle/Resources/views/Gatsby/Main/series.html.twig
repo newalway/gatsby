@@ -1,0 +1,86 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | PRODUCTS | {% if (categories|length > 0) %}{{categories[0].getTitle|upper}}{% endif %} {{ parent() }}{% endblock %}
+
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+{% set currentPath = path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~ currentPath}}">
+<meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset(categories[0].getImage)}}" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+<meta property="og:title" content="GATSBY | PRODUCTS | {{categories[0].getTitle|upper}}">
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+
+{% endblock %}
+{% block products_active %}active{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/category.css')}}">
+
+{% endblock %}
+
+{% block breadcrumb %}
+  <div id="breadcrumbs">
+    <ol class="content-inner">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+      <li><a href="{{path('products')}}">PRODUCTS</a></li>
+      <li>{% if (categories|length > 0) %}{{categories[0].getTitle|upper}}{% endif %}</li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+{% block body_class %}archive category category-product category-2 page-product{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="content-inner">
+      <section class="section-block">
+        <div  class="section-inner">
+          <h1 class="tit-vertical sticky"><p>{% if (categories|length > 0) %}{{categories[0].getTitle|upper}}{% endif %}</p></h1>
+          <div class="section-content">
+                      {% if (categories|length > 0)%}
+					  	{% if (products|length > 0) %}
+          <ul>
+            {% for serie in products %}
+           <li>
+                <a href="{{path('product_series_list', {'id':serie.id,'category':serie.productCategory.getTitle|slug ,'series':serie.getTitle|slug })}}">
+                  <span class="pic">
+                    {% if (serie.getImage|length >0) 	%}
+                        <img class="" src="{{asset(serie.getImage)}}"  alt="{{serie.getTitle}}"/>
+                    {% else %}
+                        <img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_100')}}" >
+                    {% endif %}
+                  </span>
+                  <h2 data-chaffle="en">{{serie.getTitle}}</h2>
+                  <div class="box"></div>
+                </a>
+              </li>
+              	{% endfor %}
+                      </ul>
+                      	{% endif %}
+							{% endif %}
+          </div><!-- .section-content -->
+        </div><!-- .section-inner -->
+      </section>
+    </div><!-- .content-inner -->
+  </div><!-- .content-wrapper -->
+
+
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+
+
+{% endblock %}

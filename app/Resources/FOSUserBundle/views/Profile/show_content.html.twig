@@ -1,0 +1,50 @@
+{# {% trans_default_domain 'FOSUserBundle' %} #}
+
+<div class="member-box panel panel-default fos-user-profile">
+     <div class="panel-heading">
+    <h4 class="panel-title">
+        {% trans %}member.personal.profile{% endtrans %}
+        <small class="fw-n tt-u"><a href="{{path('fos_user_profile_edit')}}"><span class="label label-warning"><i class="fa fa-pencil" aria-hidden="true"></i> {% trans %}edit{% endtrans %}</span></a></small>
+    </h4>
+</div>
+    <div class="panel-body">
+        <div class="col-xs-6 col-sm-6">
+            <label>{% trans %}member.personal.fullname{% endtrans %}</label><br />
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+        </div>
+
+        <div class="col-xs-6 col-sm-6">
+            <label>{% trans %}member.personal.email{% endtrans %}</label><br />
+            <p>{{ user.email }}</p>
+        </div>
+
+        <div class="col-xs-6 col-sm-6">
+            <label>{% trans %}member.personal.company_name{% endtrans %}</label><br />
+            {% if user.companyName %}
+            <p>{{ user.companyName }}</p>
+            {% else %}
+            <p> - </p>
+            {% endif %}
+        </div>
+
+        <div class="col-xs-6 col-sm-6">
+            <label>{% trans %}member.personal.gender{% endtrans %}</label><br />
+            <p>{{ user.gender|gender|trans }}</p>
+        </div>
+
+        <div class="col-xs-6 col-sm-6r">
+            <label>{% trans %}member.personal.birth_date{% endtrans %}</label><br />
+            <p>{{ user.birthDate|date('d/m/Y') }}</p>
+        </div>
+
+        <div class="col-xs-6 col-sm-6">
+            <label>{% trans %}member.personal.phone_number{% endtrans %}</label><br />
+            <p>{{ user.phoneNumber }}</p>
+        </div>
+
+    </div>
+</div>
+
+{{ render(controller('ProjectBundle:Member:_address_book')) }}
+
+{{ render(controller('ProjectBundle:Member:_recent_orders')) }}

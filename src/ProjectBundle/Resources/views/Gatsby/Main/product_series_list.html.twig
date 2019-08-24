@@ -1,0 +1,107 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_main_gatsby.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | PRODUCTS |
+{{series[0].productCategory.getTitle|upper}} {% if (series|length > 0) %} | {{series[0].getTitle|upper}}{% endif %} {{ parent() }}
+{% endblock %}
+
+{% block html_description %}Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).{% endblock %}
+{% block html_keywords %}gatsby wax, gatsby moving rubber, gatsby rubber, gatsby moving rubber, gatsby hair wax, gatsby styling wax, gatsby wax hair style, gatsby wax technique, gatsby wax website, gatsby singapore, hair style, hair styles, hairstyle, hair styling, hair styling tips, styling hair, men's hair style, hair wax, men's hair wax, moving rubber, styling technique, hair coloring, men's hair coloring, deodorant, men's deodorant, face care, men's face care, face wash, men's face wash, shaving, dressing pomade, hair jam, clay styling, hair foam, fragrance, facial paper{% endblock %}
+
+{% block html_meta %}
+{% set currentPath = path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) %}
+<meta property="og:type" content="website">
+<meta property="og:description" content="Official Gatsby Thailand website. Check out our hair styling (moving rubber), hair colour (hair bleach), face care (facial wash) and body care products (deodorant spray).">
+<meta property="og:url" content="{{app.request.getSchemeAndHttpHost() ~ currentPath}}">
+<meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset(series[0].getImage)}}" />
+<meta property="og:title" content="GATSBY | PRODUCTS | {{series[0].productCategory.getTitle|upper}} {% if (series|length > 0) %} | {{series[0].getTitle|upper}}{% endif %}">
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+<meta property="og:site_name" content="GATSBY">
+<meta name="referrer" content="unsafe-url">
+{% endblock %}
+
+{% block products_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('gatsby/css/bootstrap.min.css')}}"> -->
+<link rel="stylesheet" type="text/css" href="{{asset('gatsby/original/css/product-list.css')}}">
+
+<style media="screen">
+  #supreme-grease .item-main{
+    background: #abaab5;
+  }
+  #supreme-hold .item-main{background: #65494b}
+  #perfect-raise .item-main{background: #2f2f2f}
+  #classy-dry .item-main{background: #9b9b9b}
+  @media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+</style>
+{% endblock %}
+
+{% block breadcrumb %}
+  <div id="breadcrumbs">
+    <ol class="content-inner">
+      <li><a href="{{path('homepage')}}">HOME</a></li>
+      <li><a href="{{path('products')}}">PRODUCTS</a></li>
+      <li>
+        {% if (series|length > 0) %}
+        <a href="{{path('product_series', {'id':series[0].productCategory.id, 'slug':series[0].productCategory.getTitle|slug })}}">{{series[0].productCategory.getTitle|upper}}</a>
+        {% else %}ไม่พบหมวดหมู่นี้{% endif %}
+
+      </li>
+      <li>{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}</li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+{% block body_class %}archive category category-product category-2 page-product{% endblock %}
+{% block content %}
+
+    {% if (series|length > 0) %}
+        {% set serie = series[0] %}
+        {% if (serie.template == "" or serie.template == "default" ) %}
+            {% include "ProjectBundle:" ~ view_template ~ ":_default_template.html.twig" %}
+        {% elseif (serie.template == "movingRubber" ) %}
+        	  {% include "ProjectBundle:" ~ view_template ~ ":_moving_rubber_template.html.twig" %}
+        {% elseif (serie.template == "stylingPomade" ) %}
+            {% include "ProjectBundle:" ~ view_template ~ ":_styling_pomade_template.html.twig" %}
+        {% elseif (serie.template == "hairJam" ) %}
+            {% include "ProjectBundle:" ~ view_template ~ ":_hair_jam_template.html.twig" %}
+        {% else %}
+            {% include "ProjectBundle:" ~ view_template ~ ":_default_template.html.twig" %}
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+
+
+{% endblock %}

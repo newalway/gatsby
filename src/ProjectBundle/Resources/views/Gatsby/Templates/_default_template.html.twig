@@ -1,0 +1,99 @@
+<!-- body class-- post-template-default single single-post postid-71 single-format-standard page-special -->
+<!-- css -- product-list.css -->
+
+<div id="product-different" class="content-wrapper">
+    <section id="kv">
+      <div class="content-inner">
+        <div class="kv-inner">
+          <h1><span>{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}</span></h1>
+        </div>
+
+        {% if (series|length > 0) %}
+          {% if series[0].getImageBanner %}
+                <span class="bgpic pc"><img src="{{series[0].getImageBanner}}" alt="{{series[0].getTitle|upper}}" /></span>
+          {% else %}
+                <span class="bgpic pc"><img src="https://via.placeholder.com/1600x70/FFFFFF/FFFFFF" alt="{{series[0].getTitle|upper}}" /></span>
+          {% endif %}
+
+          {% if series[0].getImageBanner %}
+                <span class="bgpic sp"><img src="{{series[0].getImageBannerMobile}}" alt="{{series[0].getTitle|upper}}" /></span>
+          {% else %}
+                <span class="bgpic sp"><img src="https://via.placeholder.com/750x70/FFFFFF/FFFFFF" alt="{{series[0].getTitle|upper}}" /></span>
+          {% endif %}
+        {% endif %}
+      </div><!-- .content-inner -->
+    </section>
+
+
+    {% if (products|length >0) %}
+
+    <div class="list-slide">
+      <ul class="list-short" >
+          {% for product in products %}
+            <li>
+              <a href="#item1">
+                <span class="pic"><img src="{{product.image}}" alt="{{product.getTitle}}" /></span>
+                  {{product.getTitle|nl2br|upper}}
+              </a>
+            </li>
+          {% endfor %}
+      </ul>
+    </div>
+{% endif %}
+{% if (products|length >0) %}
+    <div class="content-inner">
+        <section id="list-content" class="section-block">
+        <div id="section-list" class="section-inner">
+          <h3 class="tit-vertical sticky"><p>{% if (series|length > 0) %}{{series[0].getTitle|upper}}  {% else %}ไม่พบซีรี่นี้{% endif %}</p></h3>
+          <div class="section-content">
+            <ul class="detail-list">
+              {% for product in products %}
+                <li id="item1">
+                <div class="box">
+                    <h2>{{product.getTitle|upper}}</h2>
+                    <div class="text">
+                       <p class="copy">{{product.getSubTitle}}</p>
+                       <p class="subcopy">{{product.getShortDesc}}</p>
+                    </div>
+                    <span class="pic"><img src="{{product.image}}" alt="{{product.getTitle}}" /></span>
+                </div>
+                <div class="detail-set">
+                    <div class="detail-section section-inner">
+                      <h3 class="tit-vertical">DETAIL</h3>
+                          <div class="section-content">
+                            <div class="inner-box">
+                                <ul class="disc-list">
+                                  <h5>SPECIAL FEATURES</h5>
+                                    {{product.getSpecialFeature|raw}}
+                                </ul>
+                            </div>
+                          </div><!-- .section-content -->
+                    </div>
+                    <div class="more-section section-inner">
+                      <h3 class="acc-btn tit-vertical">MORE</h3>
+                      <div class="section-content acc-body">
+                      <div class="inner-box">
+                          <h5>HOW TO USE</h5>
+                          <ul class="disc-list">
+                            {{product.getHowToUse|raw}}
+                          </ul>
+                      </div>
+                      <div class="inner-box">
+                        <h5>NET WEIGHT</h5>
+                        <ul class="disc-list">
+                          {{product.getNetWeight|raw}}
+                        </ul>
+                      </div>
+                    </div><!-- .section-content -->
+                  </div>
+                </div><!-- .detail-set -->
+              </li>
+              {% endfor %}
+          </ul>
+          </div><!-- .section-content -->
+        </div><!-- .section-inner -->
+
+      </section>
+    </div><!-- .content-inner -->
+  {% endif %}
+  </div><!-- .content-wrapper -->

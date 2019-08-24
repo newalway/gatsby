@@ -1,0 +1,12 @@
+admin_page_style_guide:
+  path:  /
+  defaults: { _controller: ProjectBundle:AdminPageStyleGuide:index }
+  requirements:
+    _method: get
+
+admin_page_style_guide_update:
+  path: /update
+  defaults: {_controller: ProjectBundle:AdminPageStyleGuide:update}
+  requirements:
+    _method: post
+    id: \d+

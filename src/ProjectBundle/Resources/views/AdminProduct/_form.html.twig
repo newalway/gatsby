@@ -1,0 +1,822 @@
+{% form_theme form 'bootstrap_3_layout.html.twig'
+	'jquery.collection.html.twig'
+%}
+
+{% if form.vars.value.id %}
+	{% set is_variant = product_service.isVariants(product) %}
+	{% set gallery_images = product.productImages %}
+{% else %}
+	{% set is_variant = false %}
+	{% set gallery_images = false %}
+{% endif %}
+
+<div ng-app="productApp" ng-controller="mainCtrl" ng-init="init('{{acctoken}}', '{{form.vars.value.id}}', '{% if form.vars.value.id %}{{form.vars.value.price}}{% endif %}', '{% if form.vars.value.id %}{{form.vars.value.compareAtPrice}}{% endif %}', '{% if form.vars.value.id %}{{form.vars.value.sku}}{% endif %}', '{% if form.vars.value.id %}{{form.vars.value.inventoryPolicyStatus}}{% endif %}', '{% if form.vars.value.id %}{{form.vars.value.inventoryQuantity}}{% endif %}')">
+
+	<div class="row">
+		<div class="col-md-8">
+
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Title</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<!-- <label for=""></label> -->
+						{{ form_widget(form.translations) }}
+					</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Images</h3>
+					<div class="box-tools pull-right">
+						<input type="button" value="Add Style gallery images" onclick="BrowseServerGallery('gallery_canvas');" class="btn btn-link {#btn-sm#}"/>
+					</div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="{#post#}">
+						<div class="row {#margin-bottom#}">
+							<div class="col-md-4">
+								<div class="form-control-static">
+									<!-- <label for="image"></label> -->
+									{{form_widget(form.image, {'id' : 'image'})}}
+									<a href="javascript:void(0)" onclick="selectFileWithCKFinder('image', 'image_thumbnail');" style="" >
+										{% if form.vars.value.image %}
+											<img id="image_thumbnail" class="img-responsive" src="{{asset(form.vars.value.image) | imagine_filter('img_150x150')}}" alt="{{form.vars.value.getTitle}}" />
+										{% else %}
+											<img id="image_thumbnail" class="img-responsive" src="https://placehold.it/150x100" width="150px;">
+										{% endif %}
+									</a>
+
+									{% if form.vars.value.image %}
+										<span>
+											<input type="checkbox" id="removefileimage" name="removefileimage" value="1">
+											<label class="control-label" for="removefileimage">  Remove</label>
+										</span>
+									{% endif %}
+									<!-- <p class="help-block">size image 800x800 px</p> -->
+								</div>
+							</div>
+							<div class="col-md-8">
+								<div class="form-control-static">
+									<div id="gallery_canvas">
+										<div id="data_gallery_remove"></div>
+										{% if gallery_images %}
+											{% for gallery_image in gallery_images %}
+												<div class="photo-gallery img-responsive">
+													<img src="{{asset(gallery_image.image) | imagine_filter('img_h_150')}}" alt="photo" data-fancybox="images" data-src="{{asset(gallery_image.image)}}" data-fancybox="group" />
+													<a class="removePhotoGalleryData" href="#" data-id="{{gallery_image.id}}" data-remove_elem_name="data_gallery_remove"></a>
+												</div>
+											{% endfor %}
+										{% endif %}
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="{#post#}">
+						<div class="row margin-bottom">
+							<div class="col-md-12"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			{% if (form.vars.value.series|length > 0) %}
+				{% if (form.vars.value.series.template != "default" and form.vars.value.series.template != "") %}
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Images Inner With Video</h3>
+					<div class="box-tools pull-right">
+					</div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="{#post#}">
+						<div class="row {#margin-bottom#}">
+							<div class="col-md-12">
+								<div class="form-group">
+									<!-- <label for="image"></label> -->
+									<label class="control-label col-md-2" for="title"><span class="require"></span> Images Inner<br> (Packshot)</label>
+									<div class="col-md-9">
+									{{form_widget(form.imageInnerVideo, {'id' : 'imageInnerVideo'})}}
+									<a href="javascript:void(0)" onclick="selectFileWithCKFinder('imageInnerVideo', 'image_inner_video_thumbnail');" style="" >
+										{% if form.vars.value.imageInnerVideo %}
+											<img id="image_inner_video_thumbnail" class="img-responsive" src="{{asset(form.vars.value.imageInnerVideo) | imagine_filter('img_150x150')}}" alt="{{form.vars.value.getTitle}}" />
+										{% else %}
+											<img id="image_inner_video_thumbnail" class="img-responsive" src="https://placehold.it/150x100" width="150px;">
+										{% endif %}
+									</a>
+
+									{% if form.vars.value.imageInnerVideo %}
+										<span>
+											<input type="checkbox" id="removefileImageInnerVideo" name="removefileImageInnerVideo" value="1">
+											<label class="control-label" for="removefileImageInnerVideo">  Remove</label>
+										</span>
+									{% endif %}
+								</div>
+									<!-- <p class="help-block">size image 800x800 px</p> -->
+								</div>
+							</div>
+							<div class="col-md-12">
+								<p>&nbsp;</p>
+								<div class="form-group">
+									<label class="control-label col-md-2" for="title"><span class="require"></span> Video url</label>
+									<div class="col-md-9 text-left">
+										{% if form.vars.value.video %}
+											<div class="form-group">
+													<a data-fancybox href="{{form.vars.value.video}}">
+														<img src="{{form.vars.value.thumbnailUrlPlayButton}}" alt="{{form.vars.value.getTitle}}" width="200px" />
+													</a>
+											</div>
+										{% endif %}
+										{{form_widget(form.video, {'id' : 'video'})}}
+										<div class="error-form">{{form_errors(form.video)}}</div>
+										<p class="help-block"><small>Example: https://www.youtube.com/watch?v=laMKCH7Xfmw {#  https://vimeo.com/76979871 #}</small></p>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<!-- <label for="image"></label> -->
+									<label class="control-label col-md-2" for="title"><span class="require"></span> Images Radar Chart</label>
+									<div class="col-md-9">
+									{{form_widget(form.imageRadarChart, {'id' : 'imageRadarChart'})}}
+									<a href="javascript:void(0)" onclick="selectFileWithCKFinder('imageRadarChart', 'image_radar_cahrt_thumbnail');" style="" >
+										{% if form.vars.value.imageRadarChart %}
+											<img id="image_radar_cahrt_thumbnail" class="img-responsive" src="{{asset(form.vars.value.imageRadarChart) | imagine_filter('img_150x150')}}" alt="{{form.vars.value.getTitle}}" />
+										{% else %}
+											<img id="image_radar_cahrt_thumbnail" class="img-responsive" src="https://placehold.it/150x100" width="150px;">
+										{% endif %}
+									</a>
+
+									{% if form.vars.value.imageInnerVideo %}
+										<span>
+											<input type="checkbox" id="removefileImageRadarChart" name="removefileImageRadarChart" value="1">
+											<label class="control-label" for="removefileImageRadarChart">  Remove</label>
+										</span>
+									{% endif %}
+								</div>
+									<!-- <p class="help-block">size image 800x800 px</p> -->
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+					<div class="{#post#}">
+						<div class="row margin-bottom">
+							<div class="col-md-12"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Images</h3>
+				</div>
+				<div class="box-body">
+
+
+					{{form_widget(form.productTechNique)}}
+
+
+			{#		{{dump(form.vars.value.productTechNique)}}
+				{% if form.vars.value.productTechNique %}
+						{% for product_technique in form.vars.value.productTechNique %}
+							<img id="image_thumbnail" class="img-responsive" src="{{asset(product_technique.image) | imagine_filter('img_150x150')}}" alt="{{form.vars.value.getTitle}}" />
+						{% endfor %}
+				{% else %}
+						<img id="image_thumbnail" class="img-responsive" src="https://placehold.it/150x100" width="150px;">
+					{% endif %}#}
+				</div>
+			</div>
+	{% endif %} {# sereies[0] #}
+{% endif %}{# sereies lenghte > 0 #}
+		{#	<div class="box {% if is_variant %}hidden{% endif %}">
+				<div class="box-header with-border">
+					<h3 class="box-title">Pricing</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="price"><span class="require">*</span> Price</label>
+								{{form_widget(form.price, {'id' : 'price'})}}
+								<div class="error-form">{{form_errors(form.price)}}</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="compareAtPrice">Compare at price</label>
+								{{form_widget(form.compareAtPrice, {'id' : 'compareAtPrice'})}}
+								<div class="error-form">{{form_errors(form.compareAtPrice)}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>#}
+
+			{#<div class="box {% if is_variant %}hidden{% endif %}">
+				<div class="box-header with-border">
+					<h3 class="box-title">Inventory</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="sku"> SKU</label>
+								{{form_widget(form.sku, {'id' : 'sku'})}}
+								<div class="error-form">{{form_errors(form.sku)}}</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="inventoryPolicyStatus">Inventory policy</label>
+								{{form_widget(form.inventoryPolicyStatus, {'id' : 'inventoryPolicyStatus'})}}
+								<div class="error-form">{{form_errors(form.inventoryPolicyStatus)}}</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group" ng-show="glob_inventory_policy_status=='1'">
+								<label for="inventoryQuantity">Quantity</label>
+								{{form_widget(form.inventoryQuantity, {'id' : 'inventoryQuantity'})}}
+								<div class="error-form">{{form_errors(form.inventoryQuantity)}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="box {% if is_variant %}hidden{% endif %}">
+				<div class="box-header with-border">
+					<h3 class="box-title">Shipping</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="weight"> Weight</label>
+								<div class="input-group">
+									{{form_widget(form.weight, {'id' : 'weight'})}}
+									<div class="btn-group">
+										{{form_widget(form.weightUnit, {'id' : 'weightUnit'})}}
+									</div><!-- /btn-group -->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+						</div>
+					</div>
+				</div>
+			</div>#}
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4">
+			<div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Publishing</h3>
+			  <div class="box-tools pull-right">
+				  <button ng-click="publish_date_toggle=!publish_date_toggle" class="btn btn-link" type="button"><i class="fa fa-calendar"></i></button>
+			  </div>
+            </div>
+            <!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-7">
+						<!-- radio -->
+						<div class="form-group icheck">
+							<!-- <label for="status"></label> -->
+							<div class="radio-group">
+								{{form_widget(form.status, {'id' : 'status'})}}
+								<div class="error-form">{{form_errors(form.status)}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div ng-show="publish_date_toggle" class="form-group" ng-cloak>
+							<label for="publishDate">Publish product on</label>
+							{{form_widget(form.publishDate, {'id' : 'publishDate'})}}
+							<div class="error-form">{{form_errors(form.publishDate)}}</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+            <!-- /.box-body -->
+          </div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Series</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+				<!-- checkbox -->
+				<div class="form-group icheck">
+				  <!-- <label for="series">Series</label> -->
+                  <!-- <div class="checkbox-group pre-scrollable" style="overflow: scroll;height: 200px;"> -->
+					  <!-- <div class="checkbox">
+						  <label for="series_select_all">
+						  	<input type="checkbox" id="series_select_all" /> All
+						  </label>
+					  </div> -->
+					  {{form_widget(form.series, {'id' : 'series'})}}
+					  <div class="error-form">{{form_errors(form.series)}}</div>
+                  </div>
+                <!-- </div><hr> -->
+<!-- <hr> -->
+				<!-- select -->
+				{#
+				<div class="form-group">
+					<label for="brand" class="" ><span class="require">*</span> Brand</label>
+					{{form_widget(form.brand, {'id' : 'brand'})}}
+					<div class="error-form">{{form_errors(form.brand)}}</div>
+				</div>
+
+				<!-- input -->
+				<div class="form-group">
+					<label for="userWeight"> User Weight</label>
+					<div class="">
+						{{form_widget(form.userWeight, {'id' : 'userWeight'})}}
+						<div class="error-form">{{form_errors(form.userWeight)}}</div>
+					</div>
+				</div><hr>
+
+                <!-- checkbox -->
+				<div class="form-group icheck">
+				  <label for="showrooms">Showroom</label>
+                  <div class="checkbox-group pre-scrollable" style="overflow: scroll;height: 200px;">
+					  <div class="checkbox">
+						  <label for="showroom_select_all">
+						  	<input type="checkbox" id="showroom_select_all" /> All
+						  </label>
+					  </div>
+					  {{form_widget(form.showrooms, {'id' : 'showrooms'})}}
+					  <div class="error-form">{{form_errors(form.showrooms)}}</div>
+                  </div>
+                </div><hr>
+				#}
+
+				{#<div>
+
+					<div class="icheck form-group">
+					  <div class="form-group">
+						<!-- <label>Display weight on product page</label> -->
+						<div class="">
+		  					{{form_widget(form.isShowWeight, {'id' : 'isShowWeight'})}}
+		  					<div class="error-form">{{form_errors(form.isShowWeight)}}</div>
+						</div>
+	  				  </div>
+				  </div>
+				</div><hr>#}
+
+				{#<div ng-controller="hashTagCtrl" ng-init="init_hashtag()">
+					<div class="form-group">
+					  <label>Tags</label>
+	                  <div class="">
+						  <tags-input ng-model="tags" min-length="2" max-length="45" use-strings="true" replace-spaces-with-dashes="flase">
+							  <auto-complete source="loadTags($query)"></auto-complete>
+						  </tags-input>
+						  <input type="hidden" name="admin_product[tags]" value="{{'{{tags}}'}}">
+	                  </div>
+	                </div>
+				</div>#}
+
+
+				{#<div ng-controller="hashTagCtrl">
+					<div class="form-group">
+					  <div class="form-group">
+	  					{{form_widget(form.isNew, {'id' : 'isNew','class':'form-control'})}}
+	  					<div class="error-form">{{form_errors(form.isNew)}}</div>
+	  				  </div>
+	                </div>
+				</div>#}
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<!-- <label for="inventoryPolicyStatus">Inventory policy</label> -->
+						{{form_widget(form.inventoryPolicyStatus, {'id' : 'inventoryPolicyStatus'})}}
+						<div class="error-form">{{form_errors(form.inventoryPolicyStatus)}}</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<!-- <label for="inventoryQuantity">Quantity</label> -->
+							{{form_widget(form.price, {'id' : 'price'})}}
+						<div class="error-form">{{form_errors(form.price)}}</div>
+					</div>
+				</div>
+
+
+            </div><!-- /.box-body -->
+          </div>
+		</div><!-- /.col-md-4 -->
+	</div><!-- /.row -->
+
+	<div class="row">
+		<div class="col-md-offset-2 col-md-9">
+			{{form_widget(form.save, {'id' : 'save', 'label': btn_label_save})}}
+			{{form_widget(form.save_and_add, {'id' : 'save_and_add', 'label': btn_label_save_add})}}
+			{{form_widget(form.save_and_edit, {'id' : 'save_and_edit', 'label': btn_label_save_edit})}}
+			<a href="{%if app.session.get('back_to_url')['admin_product'] is defined%}{{app.session.get('back_to_url')['admin_product']}}{%else%}{{path('admin_product')}}{%endif%}" class="btn btn-default">{{btn_label_close}} </a>
+		</div>
+	</div><!-- /.row -->
+</div><!-- /productApp controller -->
+<script>
+	$(function() {
+		$('.icheckbox input').iCheck('destroy');
+		$('.remove_icheck input').iCheck('destroy');
+		$('#weight').removeClass('form-control');
+
+		$('#publishDate').datetimepicker({
+			format: 'YYYY-MM-DD HH:mm',
+		});
+
+		setGroupCheckAll('series_select_all', 'series_check_item');
+		setGroupCheckAll('showroom_select_all', 'showroom_check_item');
+
+		// $('#publishDate').datepicker({
+		// 	dateFormat: 'yy-mm-dd',
+		// 	autoclose: true,
+		// 	todayHighlight: true,
+		// });
+		$('.collation').collection({
+	   	 	add: '<br><a class="btn btn-success" href="#"><span class="glyphicon glyphicon-plus"></span>Add slider image with caption</a>',
+	   		remove: '<a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-remove"></span></a>',
+	   		allow_up: false,
+	   		allow_down: false,
+	   		allow_duplicate: false,
+	   		add_at_the_end: true,
+	   		allow_delete: true,
+	   		min: 0,
+	   		max: 10,
+	   		after_remove: function(collection, element) {
+	   			console.log(element[0]);
+	   			// console.log(collection);
+	   			return confirm("Do you really want to delete the element?");
+	   		},
+	   		after_init: function(collection) {
+
+					var countCollation = collection[0].children.length;
+		 			$.each(collection[0].children, function (index, value) {
+		 					var id = document.getElementById(value.id);
+
+		           {% if form.productTechNique.vars.value|length > 0  %}
+		               var imageYoutube = new Array();
+		               {% for child in form.productTechNique.vars.value %}
+		                   imageYoutube.push('{{ child.image}}');
+
+		               {% endfor %}
+									 if(id){
+										 $(id.childNodes[1].childNodes[1]).prepend( "<br><img src='"+imageYoutube[index]+"' width='120' height='80'><br>");
+									 }
+
+		             // $(id).prepend( "<br><img src='"+imageYoutube[index]+"' width='120' height='80'><br>");
+		           {% endif %}
+		 			});
+	   	 }
+	    });
+	});
+
+	var app = angular.module('productApp', ['ngTagsInput']);
+
+	app.factory('hashtag_data', ['$http', function hashtag_data($http) {
+		return {
+			getProductHashtags: function(token, product_id){
+	      		return $http({
+					method:'GET',
+					url: Routing.generate('api_1_get_product_tags',{'product_id':product_id}),
+					headers: {
+						'Authorization':'Bearer ' + token
+					}
+				});
+	    	}
+		}
+	}]);
+	app.factory('variant_data', ['$http', function variant_data($http) {
+		return {
+			getProductVariants: function(token, product_id){
+	      		return $http({
+					method:'GET',
+					url: Routing.generate('api_1_get_product_variants',{'product_id':product_id}),
+					headers: {
+						'Authorization':'Bearer ' + token
+					}
+				});
+	    	}
+		}
+	}]);
+
+	app.controller('mainCtrl', function($scope, $http) {
+		$scope.init = function(token, product_id, price, compare_at_price, sku, inventory_policy_status, inventory_quantity) {
+
+			$scope.glob_access_token = token;
+			$scope.glob_product_id = product_id;
+
+			if(product_id){
+				$scope.glob_price = price;
+				if(compare_at_price){
+					$scope.glob_compare_at_price = compare_at_price;
+				}
+				$scope.glob_sku = sku;
+				$scope.glob_inventory_policy_status = inventory_policy_status;
+				$scope.glob_inventory_quantity = inventory_quantity;
+
+			}else{
+				$scope.glob_inventory_policy_status = '0';
+			}
+		}
+	});
+
+	app.controller('variantsCtrl',  function($scope, $http, variant_data) {
+		$scope.init_variants = function() {
+
+			// debug choice value
+			// $scope.showVariants = true;
+			// $scope.choices = [
+			// 	{"id": 'choice1', "option_name": "Color", "option_value": ["White","Blue","Yellow"]},
+			// 	{"id": "choice2","option_name": "Size","option_value": ["S","M","L"]}
+			// ];
+
+			$scope.showVariants = false;
+			$scope.haveVariants = false;
+			$scope.variant_is_inventory = false;
+			$scope.products_variants_loading_icon = false;
+			$scope.setUpdateVariantSkuStatus(false);
+			$scope.initVariantsData();
+
+			if($scope.glob_product_id){
+				$scope.products_variants_loading_icon = true;
+				variant_data.getProductVariants($scope.glob_access_token, $scope.glob_product_id).then(function onSuccess(response){
+					if(response.data.variants.length>0){
+						$scope.haveVariants = true;
+						$scope.choices = response.data.variants;
+						$scope.variant_options = response.data.variant_options;
+						$scope.view_variants = response.data.view_variants;
+						$scope.view_variant_options = response.data.view_variant_options;
+						$scope.variant_is_inventory = JSON.parse(response.data.variant_is_inventory);
+					}
+
+					// // compare array or object
+					// var a = [ {a:["red","s","10lb"],b:[1,2,3]} ];
+					// var b = [ {a:["red","s","10lb"],b:[1,2,3]} ];
+					// if( _.isEqual(a.sort(), b.sort()) ){
+					// 	console.log('_equal');
+					// }else{
+					// 	console.log('_not_equal');
+					// }
+
+					$scope.addItemNo($scope.choices.length);
+
+					$scope.products_variants_loading_icon = false;
+				}).catch(function onError(response){
+					console.log('Error get variants data');
+					$scope.products_variants_loading_icon = false;
+				});
+			}
+		}
+
+		$scope.setUpdateVariantSkuStatus = function(data){
+			$scope.update_variant_sku_status = data;
+		}
+
+		$scope.initVariantsData = function() {
+			if($scope.haveVariants){
+				//reset data from database
+			}else{
+				$scope.choices = [ {"id": 'choice1', "option_name": "Size", "option_value": []} ];
+				$scope.variant_options = [];
+				$scope.view_variants = [];
+				$scope.view_variant_options = [];
+				$scope.itemNo=0; //init value
+				$scope.addItemNo($scope.choices.length);
+			}
+		}
+
+		$scope.addItemNo = function(itemNo) {
+			$scope.itemNo+=itemNo;
+		}
+
+		$scope.addNewChoice = function() {
+			$scope.addItemNo(1);
+			var newItemNo = $scope.itemNo;
+			$scope.choices.push({'id':'choice'+newItemNo});
+		};
+
+		$scope.removeChoice = function(index) {
+			$scope.choices.splice(index,1);
+		};
+
+		$scope.$watch('choices', function (newValue, oldValue, scope) {
+		    //Do anything with $scope.choices
+			$scope.setRangeVariants();
+		}, true);
+
+		$scope.setRangeVariants = function() {
+			$scope.variant_option = $scope.createRangeVariants();
+		};
+
+		$scope.createRangeVariants = function() {
+			var option_len = $scope.choices.length,
+				variants = [],
+				result = [],
+				cartesianProduct = [],
+				tmp_sku_variant_option = '',
+				tmp_key_name = '',
+				tmp_variant_options = [],
+				tmp_id = '',
+				tmp_price = '',
+				tmp_compare_at_price = '',
+				tmp_inventory_quantity = '',
+				tmp_sku = '',
+				tmp_status = '',
+				tmp_image = '',
+				tmp_image_small='',
+				tmp_default_option=false;
+
+			$scope.choices.forEach(function(choice){
+				if(choice.option_value){
+					variants.push(choice.option_value);
+				}
+			});
+
+			if(variants.length>0)
+			{
+				//get recursive variant options
+				cartesianProduct = $scope.cartesianProduct(variants);
+
+				//set variant options
+				cartesianProduct.forEach(function(data, index)
+				{
+					//prepare default input data
+					tmp_id = '';
+					tmp_price = parseFloat($scope.glob_price);
+					tmp_compare_at_price = parseFloat($scope.glob_compare_at_price);
+					tmp_inventory_quantity = parseInt($scope.glob_inventory_quantity);
+					tmp_status = "on";
+					tmp_default_option=false;
+					if($scope.glob_sku){
+						tmp_sku = $scope.glob_sku+'-'+(index+1);
+					}
+
+					if($scope.glob_product_id){
+						//edit mode
+						tmp_key_name = data.join('-');
+						tmp_key_name = tmp_key_name.toLowerCase();
+						if (tmp_key_name in $scope.variant_options){
+							//exist data
+							tmp_variant_options = $scope.variant_options[tmp_key_name];
+							tmp_id = tmp_variant_options['id'];
+							tmp_price = tmp_variant_options['price'];
+							tmp_compare_at_price = tmp_variant_options['compare_at_price'];
+							tmp_inventory_quantity = tmp_variant_options['inventory_quantity'];
+							tmp_sku = tmp_variant_options['sku'];
+							tmp_status = tmp_variant_options['status'];
+							tmp_image = tmp_variant_options['image'];
+							tmp_image_small = tmp_variant_options['image_small'];
+							tmp_default_option = tmp_variant_options['default_option'];
+						}
+					}
+
+					//set data
+					tmp_sku_variant_option = {'option':data, 'id':tmp_id, 'status':tmp_status, 'price':tmp_price, 'compare_at_price':tmp_compare_at_price, 'inventory_quantity':tmp_inventory_quantity, 'sku':tmp_sku, 'image':tmp_image, 'image_small':tmp_image_small, 'default_option':tmp_default_option};
+					result.push(tmp_sku_variant_option);
+				});
+			}
+
+			return result;
+		};
+
+		$scope.cartesianProduct = function(arr) {
+		    return arr.reduce(function(a,b){
+		        return a.map(function(x){
+		            return b.map(function(y){
+		                return x.concat(y);
+		            })
+		        }).reduce(function(a,b){ return a.concat(b) },[])
+		    }, [[]])
+		}
+
+		$scope.range = function(min, max, step) {
+		    step = step || 1;
+		    var input = [];
+		    for (var i = min; i <= max; i += step) {
+				input.push(i);
+		    }
+		    return input;
+		};
+
+		$scope.getRouteSkuEdit = function(id){
+			return Routing.generate('admin_sku_edit',{'id':id});
+		};
+
+		$scope.ngSelectFileWithCKFinder = function(ele_id){
+			// selectFileWithCKFinder(ele_id);
+			angular.element(selectFileWithCKFinder(ele_id));
+		};
+
+		// $scope.removeLastChoice = function() {
+		// 	var lastItem = $scope.choices.length-1;
+		// 	$scope.choices.splice(lastItem);
+		// };
+
+		/*
+		// only 2 dimention
+		$scope.generateVariants = function(data, prefix) {
+		    if (typeof prefix === 'undefined') {
+          		prefix = '';
+	        }
+	        var result = [];
+	        var attribute = data.shift();
+	        $.each(attribute, function(key,val) {
+	            if (data instanceof Array && data.length > 0) {
+					// Instead of passing the original array, clone it and pass the cloned array as argument.
+
+					_data = data.slice(0);
+
+					result = result.concat($scope.generateVariants(_data, val + ' '));
+	            } else {
+					result.push(prefix + val);
+	            }
+        	});
+        	return result;
+		}
+		*/
+
+	});
+
+	app.controller('hashTagCtrl', function($scope, $http, hashtag_data) {
+		$scope.init_hashtag = function() {
+			$scope.tags = [];
+
+			if($scope.glob_product_id){
+				hashtag_data.getProductHashtags($scope.glob_access_token, $scope.glob_product_id).then(function onSuccess(response){
+					$scope.tags = response.data.data;
+			    }).catch(function onError(response) {
+					console.log('Error get current hashtag');
+			    });
+			}else{
+				$scope.tags = [];
+			}
+		}
+        $scope.loadTags = function(query) {
+			return $http.get('{{path('api_1_get_tags')}}?query=' + query, {
+				headers: {
+					"Authorization": "Bearer " + $scope.glob_access_token
+				}
+			}).then(function (response) {
+				return response.data.data;
+			}, function(response) {
+				console.log('Error loading tag');
+			});
+        };
+		// $scope.tags = [{text:'just'}, {text:'some'}]; //option use-strings=false
+		// $scope.tags = ['just', 'some', 'cool', 'tags'];  //option use-strings=true
+	});
+
+	app.filter('join', function () {
+	    return function join(array, separator, prop) {
+	        if (!Array.isArray(array)) {
+				return array; // if not array return original - can also throw error
+	        }
+			return (!!prop ? array.map(function (item) {
+				return item[prop];
+			}) : array).join(separator);
+		};
+	});
+
+	app.directive('dirSelectFile', [function() {
+	    return {
+	        restrict: 'A',
+	        link: function(scope, element, attrs) {
+	            element.bind('click', function() {
+	                angular.element(selectFileWithCKFinder(attrs.dataindex, attrs.datathumb));
+	            });
+	        }
+	    };
+	}]);
+
+</script>

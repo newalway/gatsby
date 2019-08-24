@@ -1,0 +1,70 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}project.title_bar_name{% endtrans %} | CATEGORY {{ parent() }}{% endblock %}
+{% block products_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+	<div class="container-fluid">
+		<ul class="breadcrumb">
+			<li><a href="{{path('homepage')}}">HOME</a></li>
+			<li>PRODUCTS</li>
+		</ul>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+  <script src="{{asset('gatsby/js/jssor.slider-27.5.0.min.js')}}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+
+
+<section id="product" class="product">
+  <div class="container">
+    <h1 class="text-center product-title">PRODUCT LINEUP</h1>
+	<div class="product-box">
+	{% if (product_categories|length > 0)%}
+	{% for cat in product_categories %}
+	<div class="box-width">
+	  <a href="{{path('product_series', {'id':cat.id, 'slug':cat.getTitle|slug })}}">
+		<div class="box">
+		  <div class="box-content">
+			<div class="col-xs-6 col-md-6 col-lg-6">
+			  <div class="title-category">
+				  {{cat.getTitle}}
+			  </div>
+			</div>
+			<div class="col-xs-6 col-md-6 col-lg-6">
+			  <div class="image-category pull-right">
+				  {% if (cat.getImage|length >0) 	%}
+				  <img class="" src="{{asset(cat.getImage)|imagine_filter('img_h_100')}}"  alt="{{cat.getTitle}}"/>
+				  {% else %}
+					<img src="{{asset('gatsby/images/no-image.png')|imagine_filter('img_h_100')}}" >
+				  {% endif %}
+			  </div>
+			</div>
+
+		  </div>
+	  </a>
+	  </div>
+	</div>
+	{% endfor %}
+	{% else %}
+		<div class="panel panel-body text-center">
+			ไม่พบหมวดหมู่นี้
+		</div>
+	{% endif %}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+
+
+{% endblock %}

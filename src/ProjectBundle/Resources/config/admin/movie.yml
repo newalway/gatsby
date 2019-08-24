@@ -1,0 +1,58 @@
+admin_movie:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminMovie:index}
+  requirements:
+    _method: get
+
+admin_movie_new:
+  path: /new
+  defaults: {_controller: ProjectBundle:AdminMovie:new}
+
+admin_movie_create:
+  path: /create
+  defaults: {_controller: ProjectBundle:AdminMovie:create}
+  requirements:
+    _method: post
+
+admin_movie_edit:
+  path: /{id}/edit
+  defaults: {_controller: ProjectBundle:AdminMovie:edit}
+  requirements:
+    id: \d+
+
+admin_movie_update:
+  path: /{id}
+  defaults: {_controller: ProjectBundle:AdminMovie:update}
+  requirements:
+    _method: post
+    id: \d+
+
+admin_movie_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminMovie:delete}
+  requirements:
+    _method: get
+
+admin_movie_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminMovie:group_delete}
+  requirements:
+    _method: post
+
+admin_movie_group_enable:
+  path: /group-enable
+  defaults: {_controller: ProjectBundle:AdminMovie:group_enable}
+  requirements:
+    _method: post
+
+admin_movie_group_disable:
+  path: /group-disable
+  defaults: {_controller: ProjectBundle:AdminMovie:group_disable}
+  requirements:
+    _method: post
+
+admin_movie_list_series_by_category:
+  path: /get-series-by-category
+  defaults: {_controller: ProjectBundle:AdminMovie:listSeriesOfCategory}
+  requirements:
+    _method: get

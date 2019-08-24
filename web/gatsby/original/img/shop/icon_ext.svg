@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
+  <defs>
+    <style>
+      .icon_ext {
+        fill: #CCCCCC;
+      }
+    </style>
+  </defs>
+  <path id="icon_ext" class="icon_ext" d="M0,1H3V2H0V1ZM0,8H8V9H0V8ZM0,1H1V9H0V1ZM7,6H8V9H7V6ZM5,0H9V1H5V0ZM8,0H9V4H8V0ZM3.994,4.29l4.3-4.3L9.006,0.71l-4.3,4.3Z"/>
+</svg>

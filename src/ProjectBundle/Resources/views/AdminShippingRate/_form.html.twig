@@ -1,0 +1,111 @@
+<div ng-app="shippingRateApp" ng-controller="shippingRateController" ng-init="data_init('{{form.vars.value.rateAmount}}', '{{form.vars.value.freeShipping}}')">
+	<div class="box-body">
+
+		<div class="form-group">
+			<label class="control-label col-md-3" for="rateType">Rate Type</label>
+			<div class="col-md-6 form-control-static">
+				{{form_widget(form.rateType, {'id' : 'rateType'})}}
+				<div class="error-form">{{form_errors(form.rateType)}}</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3" for="title"><span class="require">*</span> Name</label>
+			<div class="col-md-6 form-control-static">
+				{{form_widget(form.title, {'id' : 'title'})}}
+				<div class="error-form">{{form_errors(form.title)}}</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3" for="minimumRange"><span class="require">*</span> Minimum Range</label>
+			<div class="col-md-6">
+				<div class="input-group">
+					{{form_widget(form.minimumRange, {'id' : 'minimumRange'})}}
+					<span class="input-group-addon" ng-cloak>{{'{{getIcon()}}'}}</span>
+				</div>
+				<div class="error-form">{{form_errors(form.minimumRange)}}</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3" for="maximumRange"><span class="require">*</span> Maximum Range</label>
+			<div class="col-md-6">
+				<div class="input-group">
+					{{form_widget(form.maximumRange, {'id' : 'maximumRange'})}}
+					<span class="input-group-addon" ng-cloak>{{'{{getIcon()}}'}}</span>
+				</div>
+				<p class="help-block">0 is unlimited</p>
+				<div class="error-form">{{form_errors(form.maximumRange)}}</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3" for="rateAmount"><span class="require">*</span> Rate</label>
+			<div class="col-md-6" style="padding-top: 7px;">
+				{{form_widget(form.freeShipping, {'id' : 'admin_shipping_rate_freeShipping', 'attr':{'ng-model':'frm_shipping_rate.free_shipping', 'ng-change':'toggleFreeShipping()'}})}}
+				{{form_label(form.freeShipping)}}
+				<div class="error-form">{{form_errors(form.freeShipping)}}</div>
+				<br/>
+
+                <label>Rate Amount</label>
+				<div class="input-group">
+					{{form_widget(form.rateAmount, {'id' : 'rateAmount', 'attr':{'ng-model':'frm_shipping_rate.rate_amount', 'ng-disabled':'frm_shipping_rate.free_shipping' }})}}
+					<span class="input-group-addon">฿</span>
+				</div>
+				<div class="error-form">{{form_errors(form.rateAmount)}}</div>
+			</div>
+		</div>
+{#
+{{'{{frm_shipping_rate}}'}}
+#}
+	</div>
+
+	<div class="box-footer">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				{{form_widget(form.save, {'id' : 'save', 'label': 'Save'})}}
+				<a href="{% if app.session.get('back_to_url')['admin_shipping_rate'] is defined%}
+							{{app.session.get('back_to_url')['admin_shipping_rate']}}
+						 {% else %}
+							 {{path('admin_shipping_rate')}}
+					 	 {% endif %}" class="btn btn-default">Close
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var app = angular.module('shippingRateApp', []);
+	app.controller('shippingRateController',['$scope', '$sce', function($scope, $sce){
+		$scope.data_init = function(default_rate_amount, default_free_shipping){
+
+			default_free_shipping = (default_free_shipping) ? true : false ;
+
+			// get data from window object
+			$scope.frm_shipping_rate = {
+				rate_amount: default_rate_amount,
+				free_shipping: default_free_shipping
+			};
+		}
+
+		$scope.rate_type = '{{ (form.vars.value.ratetype) ? form.vars.value.ratetype : 'price_based_rate' }}';
+		$scope.getIcon = function(){
+			if($scope.rate_type == 'price_based_rate'){
+				return '฿';
+			}else if($scope.rate_type == 'weight_based_rate'){
+				return 'g';
+			}else if($scope.rate_type == 'item_based_rate'){
+				return 'Item';
+			}
+		}
+
+		$scope.toggleFreeShipping = function(){
+			if($scope.frm_shipping_rate.free_shipping){
+				$scope.frm_shipping_rate.rate_amount = '';
+			}
+		}
+	}]);
+
+</script>

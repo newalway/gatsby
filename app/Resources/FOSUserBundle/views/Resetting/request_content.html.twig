@@ -1,0 +1,15 @@
+
+<div class="container fos-container">
+  <h2 class="text-center">{{ 'reset_password.title'|trans }}</h2>
+
+  <div class="fos-box">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+      <div class="form-group">
+        <label for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="text" id="username" name="username" required="required" class="form-control"/>
+      </div>
+      <button type="submit" id="_submit" name="_submit" class="btn btn-block btn-marathon">{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}</button>
+    </form>
+  </div>
+
+</div>
